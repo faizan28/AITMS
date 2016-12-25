@@ -25,7 +25,18 @@ namespace AIT_MS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (masterHeadBox.Text == "")
+                {
+                    MessageBox.Show("Some Fields are empty");
+                }
+            }
+            catch ( Exception ex)
+            {
 
+                MessageBox.Show("ERROR " + ex.Message);
+            }
         }
     }
 }

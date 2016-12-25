@@ -17,7 +17,7 @@ namespace AIT_MS
             DataTable dt = new DataTable();
             int id=objDAL.ExecuteScalar(query);
             return id;
- 
+ //amas
         }
         public int AdminLogin(string usrname, string Pwd)
         {
