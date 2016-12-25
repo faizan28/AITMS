@@ -22,7 +22,7 @@ namespace AIT_MS
         {
             btnRed.Enabled = false;
             btnRed.Visible = false;
-            lblLoginFailed.Visible = false;//faizan
+            lblLoginFailed.Visible = false;
         }
         
         private void groupBox1_Enter(object sender, EventArgs e)
