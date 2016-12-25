@@ -19,6 +19,14 @@ namespace AIT_MS
             return id;
  
         }
+        public int AdminLogin(string usrname, string Pwd)
+        {
+            string query = "select * from adminlogin where a_name='" + usrname + "' and a_pass='" + Pwd + "'";
+            DataTable dt = new DataTable();
+            int id = objDAL.ExecuteScalar(query);
+            return id;
+
+        }
 
 
 
