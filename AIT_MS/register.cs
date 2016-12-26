@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using AIT_MS.Register;
 namespace AIT_MS
 {
     public partial class register : Form
@@ -15,6 +15,11 @@ namespace AIT_MS
         public register()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

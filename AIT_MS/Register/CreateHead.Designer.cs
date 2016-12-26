@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.headBox = new System.Windows.Forms.TextBox();
-            this.masterHeadBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.createButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.createButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.masterHeadBox = new System.Windows.Forms.ComboBox();
+            this.headBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,31 +51,26 @@
             this.groupBox1.Size = new System.Drawing.Size(466, 253);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Head";
             // 
-            // headBox
+            // cancelButton
             // 
-            this.headBox.Location = new System.Drawing.Point(191, 107);
-            this.headBox.Name = "headBox";
-            this.headBox.Size = new System.Drawing.Size(231, 20);
-            this.headBox.TabIndex = 0;
+            this.cancelButton.Location = new System.Drawing.Point(333, 189);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 5;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
             // 
-            // masterHeadBox
+            // createButton
             // 
-            this.masterHeadBox.FormattingEnabled = true;
-            this.masterHeadBox.Location = new System.Drawing.Point(191, 47);
-            this.masterHeadBox.Name = "masterHeadBox";
-            this.masterHeadBox.Size = new System.Drawing.Size(231, 21);
-            this.masterHeadBox.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Select Master Head";
+            this.createButton.Location = new System.Drawing.Point(237, 189);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(75, 23);
+            this.createButton.TabIndex = 4;
+            this.createButton.Text = "Create";
+            this.createButton.UseVisualStyleBackColor = true;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // label2
             // 
@@ -86,23 +81,29 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Enter New Head Name";
             // 
-            // createButton
+            // label1
             // 
-            this.createButton.Location = new System.Drawing.Point(237, 189);
-            this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(75, 23);
-            this.createButton.TabIndex = 4;
-            this.createButton.Text = "Create";
-            this.createButton.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(48, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Select Master Head";
             // 
-            // cancelButton
+            // masterHeadBox
             // 
-            this.cancelButton.Location = new System.Drawing.Point(333, 189);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 5;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.masterHeadBox.FormattingEnabled = true;
+            this.masterHeadBox.Location = new System.Drawing.Point(191, 47);
+            this.masterHeadBox.Name = "masterHeadBox";
+            this.masterHeadBox.Size = new System.Drawing.Size(231, 21);
+            this.masterHeadBox.TabIndex = 1;
+            // 
+            // headBox
+            // 
+            this.headBox.Location = new System.Drawing.Point(191, 107);
+            this.headBox.Name = "headBox";
+            this.headBox.Size = new System.Drawing.Size(231, 20);
+            this.headBox.TabIndex = 0;
             // 
             // addhead
             // 
