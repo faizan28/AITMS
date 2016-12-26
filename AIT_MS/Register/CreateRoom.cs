@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using AIT_MS.App_Code;
 namespace AIT_MS.Register
 {
     public partial class CreateRoom : Form
     {
+        clsRegister objRegister = new clsRegister();
         public CreateRoom()
         {
             InitializeComponent();
@@ -19,7 +20,32 @@ namespace AIT_MS.Register
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (objRegister.Addroom(cboxDeptName.SelectedValue.ToString(), txtRoomNo.Text, txtRoomDesc.Text) == true)
+            {
+                MessageBox.Show("Successfull");
+                this.Close();
+                //reopen previous page of the  application after completion
+            }
+            
+        }
 
+        private void CreateRoom_Load(object sender, EventArgs e)
+        {
+            BindComboBoxDept();
+        }
+        public void BindComboBoxDept()
+        {
+            DataTable dt = new DataTable();
+            
+            dt = objRegister.SelecAlltDept();
+            cboxDeptName.DisplayMember = "d_name";
+            cboxDeptName.ValueMember = "d_id";
+            cboxDeptName.DataSource = dt;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using AIT_MS.App_Code;
 namespace AIT_MS
 {
     public partial class CreateDept : Form
