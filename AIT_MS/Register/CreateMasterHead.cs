@@ -35,12 +35,13 @@ namespace AIT_MS
                 }
                 else
                 {
-                   bool result = objRegister.createMasterHead(masterHeadBox.Text);
-                   if (result == true)
+                  
+                   if (objRegister.createMasterHead(masterHeadBox.Text) == true)
                    {
+                       MessageBox.Show("Succesfull Inserted");
                        this.Close();
                        //here last form will open
-                       MessageBox.Show("Succesfull Inserted");
+                      
                    }                 
                 }
             }

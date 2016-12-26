@@ -17,16 +17,37 @@ namespace AIT_MS.App_Code
             string query = "insert into master_heada values('"+masterHeadName.ToString()+"')";
             return objDAl.ExecuteQuery(query);
         }
-        public DataTable loadheadnames()
+        public DataTable loadmhheadnames()
         {
-            string query = "select * from master_heada";
+            string query = "select mh_id,mh_name from master_heada";
             DataTable dt = new DataTable();
+            dt.Rows.Clear();
+            dt.Clear();
+            dt.Dispose();
             dt = objDAl.GetAll(query);
             return dt;
         }
-        public Boolean createHead(string headName)
+        public DataTable loadheadnames()
         {
-            string query = "insert into heada values('" + headName + "')" ;
+            string query = "select h_id,h_name from heada";
+            DataTable dt = new DataTable();
+            dt.Rows.Clear();
+            dt.Clear();
+            dt.Dispose();
+            dt = objDAl.GetAll(query);
+            return dt;
+        }
+        public Boolean createHead(string headName, int masterHeadName)
+        {
+            
+            string query = "insert into heada values('" + headName + "','"+ masterHeadName +"')" ;
+            
+            return objDAl.ExecuteQuery(query);
+
+        }
+        public Boolean createItem(int mhID, int hID, string itemDESC, string iStock, string iName)
+        {
+            string query = "insert into item_a values('"+mhID+"','"+hID+"','"+itemDESC+"','"+iStock+"','"+iName+"')";
             return objDAl.ExecuteQuery(query);
         }
 

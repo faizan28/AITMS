@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AIT_MS.Register;
 
 namespace AIT_MS
 {
@@ -16,7 +17,7 @@ namespace AIT_MS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Register.CreateStaff());
+            Application.Run(new AddItem());
         }
     }
 }

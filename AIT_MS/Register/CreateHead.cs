@@ -28,7 +28,7 @@ namespace AIT_MS
         private void bindmasterheadnames()
         {
             DataTable dt = new DataTable();
-            dt = objRegister.loadheadnames();
+            dt = objRegister.loadmhheadnames();
             masterHeadBox.DisplayMember = "mh_name";
             masterHeadBox.ValueMember = "mh_id";
             masterHeadBox.DataSource = dt;
@@ -39,7 +39,15 @@ namespace AIT_MS
 
         private void createButton_Click(object sender, EventArgs e)
         {
-           
+            if (objRegister.createHead(headBox.Text, int.Parse(masterHeadBox.SelectedValue.ToString())) == true) 
+            {
+                MessageBox.Show("Succesfull Inserted");
+                this.Close();
+                //here last form will open
+                
+            }
+
+
         }
     }
 }
