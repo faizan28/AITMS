@@ -39,14 +39,18 @@ namespace AIT_MS.MR
             clsCreateNewMR objclsCreateNewMR = new clsCreateNewMR();
             if (flag == 0)
 
-            { objclsCreateNewMR.createNewMRno(int.Parse(txtMRno.Text)); }
+            { 
+                
+                objclsCreateNewMR.createNewMRno(int.Parse(txtMRno.Text));
+                this.Hide();
+            }
             else { //updatefucntaion here
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void AddNewMR_Load(object sender, EventArgs e)
