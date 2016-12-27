@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chckboxAdminLogin = new System.Windows.Forms.CheckBox();
             this.btnRed = new System.Windows.Forms.Button();
             this.lblLoginFailed = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.txtUseranme = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.chckboxAdminLogin = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
             this.groupBox1.Enter += new System.EventHandler(this.Login_Load);
+            // 
+            // chckboxAdminLogin
+            // 
+            this.chckboxAdminLogin.AutoSize = true;
+            this.chckboxAdminLogin.Location = new System.Drawing.Point(116, 136);
+            this.chckboxAdminLogin.Name = "chckboxAdminLogin";
+            this.chckboxAdminLogin.Size = new System.Drawing.Size(98, 17);
+            this.chckboxAdminLogin.TabIndex = 7;
+            this.chckboxAdminLogin.Text = "Login as Admin";
+            this.chckboxAdminLogin.UseVisualStyleBackColor = true;
             // 
             // btnRed
             // 
@@ -85,7 +95,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 108);
+            this.label2.Location = new System.Drawing.Point(29, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 4;
@@ -95,7 +105,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 59);
+            this.label1.Location = new System.Drawing.Point(29, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 3;
@@ -135,16 +145,6 @@
             this.label3.Size = new System.Drawing.Size(490, 39);
             this.label3.TabIndex = 1;
             this.label3.Text = "Aligarh Institute Of Technology";
-            // 
-            // chckboxAdminLogin
-            // 
-            this.chckboxAdminLogin.AutoSize = true;
-            this.chckboxAdminLogin.Location = new System.Drawing.Point(116, 136);
-            this.chckboxAdminLogin.Name = "chckboxAdminLogin";
-            this.chckboxAdminLogin.Size = new System.Drawing.Size(98, 17);
-            this.chckboxAdminLogin.TabIndex = 7;
-            this.chckboxAdminLogin.Text = "Login as Admin";
-            this.chckboxAdminLogin.UseVisualStyleBackColor = true;
             // 
             // Login
             // 

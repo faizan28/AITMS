@@ -72,6 +72,13 @@ namespace AIT_MS.App_Code
 
 
         }
+        public DataTable SelectDeptRoom(string deptId)
+        {
+            string query = "Select * from room_info where d_id='"+deptId+"'";
+            return objDAl.GetAll(query);
+
+
+        }
         public DataTable SelecAllCub()
         {
             string query = "Select * from cub";
@@ -97,5 +104,6 @@ namespace AIT_MS.App_Code
             return objDAl.ExecuteQuery(query);
 
         }
+
    }
 }

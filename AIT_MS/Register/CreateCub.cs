@@ -31,7 +31,7 @@ namespace AIT_MS.Register
         public void BindComboBoxRoom()
         {
             DataTable dt = new DataTable();
-            dt = objRegister.SelecAllRoom();
+            dt = objRegister.SelectDeptRoom(cboxDept.SelectedValue.ToString());
             cboxRoomNo.DisplayMember = "r_name";
             cboxRoomNo.ValueMember = "r_id";
             cboxRoomNo.DataSource = dt;
@@ -39,7 +39,9 @@ namespace AIT_MS.Register
 
         private void CreateCub_Load(object sender, EventArgs e)
         {
-            BindComboBoxRoom();
+            
+            BindComboBoxDept();
+            cboxRoomNo.Enabled = false;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -54,6 +56,24 @@ namespace AIT_MS.Register
                 MessageBox.Show("Successfull");
                 this.Hide();
             }
+        }
+        public void BindComboBoxDept()
+        {
+            DataTable dt = new DataTable();
+
+            dt = objRegister.SelecAlltDept();
+            DataRow row = dt.NewRow();
+            row["d_name"] = "Please select";
+            dt.Rows.InsertAt(row, 0);
+            cboxDept.DisplayMember = "d_name";
+            cboxDept.ValueMember = "d_id";
+            cboxDept.DataSource = dt;
+        }
+
+        private void cboxDept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboxRoomNo.Enabled = true;
+            BindComboBoxRoom();
         }
     }
 }

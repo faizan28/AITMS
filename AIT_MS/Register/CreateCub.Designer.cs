@@ -35,11 +35,15 @@
             this.txtCubicalName = new System.Windows.Forms.TextBox();
             this.createcubButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.cboxDept = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cboxDept);
             this.groupBox1.Controls.Add(this.cboxRoomNo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -55,7 +59,7 @@
             // cboxRoomNo
             // 
             this.cboxRoomNo.FormattingEnabled = true;
-            this.cboxRoomNo.Location = new System.Drawing.Point(252, 61);
+            this.cboxRoomNo.Location = new System.Drawing.Point(252, 92);
             this.cboxRoomNo.Name = "cboxRoomNo";
             this.cboxRoomNo.Size = new System.Drawing.Size(121, 21);
             this.cboxRoomNo.TabIndex = 4;
@@ -63,7 +67,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(95, 109);
+            this.label2.Location = new System.Drawing.Point(95, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 3;
@@ -72,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(95, 69);
+            this.label1.Location = new System.Drawing.Point(95, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 2;
@@ -81,7 +85,7 @@
             // 
             // txtCubicalName
             // 
-            this.txtCubicalName.Location = new System.Drawing.Point(252, 102);
+            this.txtCubicalName.Location = new System.Drawing.Point(252, 139);
             this.txtCubicalName.Name = "txtCubicalName";
             this.txtCubicalName.Size = new System.Drawing.Size(121, 20);
             this.txtCubicalName.TabIndex = 1;
@@ -105,6 +109,24 @@
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // cboxDept
+            // 
+            this.cboxDept.FormattingEnabled = true;
+            this.cboxDept.Location = new System.Drawing.Point(252, 43);
+            this.cboxDept.Name = "cboxDept";
+            this.cboxDept.Size = new System.Drawing.Size(121, 21);
+            this.cboxDept.TabIndex = 5;
+            this.cboxDept.SelectedIndexChanged += new System.EventHandler(this.cboxDept_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(95, 46);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Department";
             // 
             // CreateCub
             // 
@@ -132,5 +154,7 @@
         private System.Windows.Forms.Button createcubButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.ComboBox cboxRoomNo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboxDept;
     }
 }
