@@ -22,8 +22,8 @@ namespace AIT_MS.Register
         {
             if (objRegister.Addroom(cboxDeptName.SelectedValue.ToString(), txtRoomNo.Text, txtRoomDesc.Text) == true)
             {
-                MessageBox.Show("Successfull");
-                this.Close();
+                
+                this.Hide();
                 //reopen previous page of the  application after completion
             }
             
@@ -45,7 +45,7 @@ namespace AIT_MS.Register
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
     }
 }

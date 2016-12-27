@@ -45,7 +45,7 @@ namespace AIT_MS
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

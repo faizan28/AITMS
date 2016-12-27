@@ -56,8 +56,13 @@ namespace AIT_MS.Register
             if (objRegister.AddNewStaff(cboxDept.SelectedValue.ToString(), cboxRoom.SelectedValue.ToString(), cboxCub.SelectedValue.ToString(), txtFrstname.Text, txtScndName.Text, txtPrsnlId.Text, txtRemarks.Text) == true)
             {
                 MessageBox.Show("Successful");
-                this.Close();
+                this.Hide();
             }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

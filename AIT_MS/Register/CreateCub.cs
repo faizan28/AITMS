@@ -46,7 +46,7 @@ namespace AIT_MS.Register
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void createcubButton_Click(object sender, EventArgs e)
