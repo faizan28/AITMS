@@ -17,7 +17,7 @@ namespace AIT_MS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Register.CreateCub());
+            Application.Run(new Form1());
         }
     }
 }

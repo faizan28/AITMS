@@ -20,22 +20,14 @@ namespace AIT_MS.App_Code
         public DataTable loadmhheadnames()
         {
             string query = "select mh_id,mh_name from master_heada";
-            DataTable dt = new DataTable();
-            dt.Rows.Clear();
-            dt.Clear();
-            dt.Dispose();
-            dt = objDAl.GetAll(query);
-            return dt;
+            return objDAl.GetAll(query);
         }
         public DataTable loadheadnames()
         {
             string query = "select h_id,h_name from heada";
-            DataTable dt = new DataTable();
-            dt.Rows.Clear();
-            dt.Clear();
-            dt.Dispose();
-            dt = objDAl.GetAll(query);
-            return dt;
+           
+            return objDAl.GetAll(query);
+            
         }
         public Boolean createHead(string headName, int masterHeadName)
         {

@@ -49,5 +49,10 @@ namespace AIT_MS
 
 
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

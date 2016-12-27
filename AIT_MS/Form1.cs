@@ -33,5 +33,20 @@ namespace AIT_MS
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            register objRegister = new register();
+            objRegister.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MR.MR objAddNewMR = new MR.MR();
+            objAddNewMR.Show();
+            this.Hide();
+            
+        }
+
     }
 }

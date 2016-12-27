@@ -48,13 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\clsCreateNewMR.cs" />
     <Compile Include="App_Code\clsLogin.cs" />
+    <Compile Include="App_Code\clsMR.cs" />
     <Compile Include="App_Code\clsRegister.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MR\AddNewMR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MR\AddNewMR.Designer.cs">
+      <DependentUpon>AddNewMR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MR\MR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MR\MR.Designer.cs">
+      <DependentUpon>MR.cs</DependentUpon>
     </Compile>
     <Compile Include="Register\AddItem.cs">
       <SubType>Form</SubType>
@@ -115,6 +129,12 @@
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MR\AddNewMR.resx">
+      <DependentUpon>AddNewMR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MR\MR.resx">
+      <DependentUpon>MR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Register\AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
