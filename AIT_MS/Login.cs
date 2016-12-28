@@ -42,6 +42,8 @@ namespace AIT_MS
                 if (adminId > 0)
                 {
                     // this.Close();
+                    Properties.Settings.Default["UserID"] =Convert.ToString( adminId);
+                    Properties.Settings.Default.Save();
                     MessageBox.Show("Successfully Admin Logined");
                 }
                 else
@@ -60,7 +62,10 @@ namespace AIT_MS
                 if (userId > 0)
                 {
                     // this.Close();
+                    Properties.Settings.Default["UserID"] = Convert.ToString(userId);
+                    Properties.Settings.Default.Save();
                     MessageBox.Show("Successfully Logined");
+                 
                 }
                 else
                 {

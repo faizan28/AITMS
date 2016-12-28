@@ -18,7 +18,7 @@ namespace AIT_MS
             DataTable dt = new DataTable();
             int id=objDAL.ExecuteScalar(query);
             return id;
- //amas
+
         }
         public int AdminLogin(string usrname, string Pwd)
         {
@@ -29,6 +29,20 @@ namespace AIT_MS
 
         }
 
+        public bool UpdatePwd(string user_id, string newpwd)
+        {
+            string query = "UPDATE userlogin SET u_pass= '" + newpwd + "' WHERE u_id = '" + user_id + "'";
+            DAL objDAL = new DAL();
+            return objDAL.ExecuteQuery(query);
+        }
+
+        public int CheckUserPwd(string userId,string Pwd)
+        {
+            string query = "select * from userlogin where u_id='"+userId+"' and u_pass='" + Pwd + "'";
+           
+            int id = objDAL.ExecuteScalar(query);
+            return id;
+        }
 
 
 
