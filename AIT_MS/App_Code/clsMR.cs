@@ -16,10 +16,21 @@ namespace AIT_MS.App_Code
             string query = "select * from mr"; 
             return objDAl.GetAll(query);
         }
-        public DataTable getallmrid(int id)
+        public DataTable getallmrid(string id)
         {
-            string query = "select * from mr where mr_no ="+id;
+            string query = "select * from mr where mr_id ='"+id+"'";
             return objDAl.GetAll(query);
+        }
+        public Boolean updatemr(string oldmr,string newmr)
+        {
+            string query = "update mr set mr_no='"+newmr.ToString()+"' where mr_id='"+oldmr.ToString()+"'";
+            return objDAl.ExecuteQuery(query);
+            
+        }
+        public Boolean deletemr(string mrid)
+        {
+            string query = "delete from mr where mr_id="+mrid;
+            return objDAl.ExecuteQuery(query);
         }
     }
 }

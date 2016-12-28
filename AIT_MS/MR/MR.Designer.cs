@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAddNewMR = new System.Windows.Forms.Button();
-            this.btnMain = new System.Windows.Forms.Button();
-            this.mrGrid = new System.Windows.Forms.DataGridView();
             this.btnGetAll = new System.Windows.Forms.Button();
+            this.btnMain = new System.Windows.Forms.Button();
+            this.btnAddNewMR = new System.Windows.Forms.Button();
+            this.mrGrid = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mrGrid)).BeginInit();
             this.SuspendLayout();
@@ -49,15 +49,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // btnAddNewMR
+            // btnGetAll
             // 
-            this.btnAddNewMR.Location = new System.Drawing.Point(16, 80);
-            this.btnAddNewMR.Name = "btnAddNewMR";
-            this.btnAddNewMR.Size = new System.Drawing.Size(111, 23);
-            this.btnAddNewMR.TabIndex = 0;
-            this.btnAddNewMR.Text = "Add New MR";
-            this.btnAddNewMR.UseVisualStyleBackColor = true;
-            this.btnAddNewMR.Click += new System.EventHandler(this.button1_Click);
+            this.btnGetAll.Location = new System.Drawing.Point(16, 31);
+            this.btnGetAll.Name = "btnGetAll";
+            this.btnGetAll.Size = new System.Drawing.Size(75, 23);
+            this.btnGetAll.TabIndex = 2;
+            this.btnGetAll.Text = "Get All";
+            this.btnGetAll.UseVisualStyleBackColor = true;
+            this.btnGetAll.Click += new System.EventHandler(this.btnGetAll_Click);
             // 
             // btnMain
             // 
@@ -69,28 +69,29 @@
             this.btnMain.UseVisualStyleBackColor = true;
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
+            // btnAddNewMR
+            // 
+            this.btnAddNewMR.Location = new System.Drawing.Point(16, 80);
+            this.btnAddNewMR.Name = "btnAddNewMR";
+            this.btnAddNewMR.Size = new System.Drawing.Size(111, 23);
+            this.btnAddNewMR.TabIndex = 0;
+            this.btnAddNewMR.Text = "Add New MR";
+            this.btnAddNewMR.UseVisualStyleBackColor = true;
+            this.btnAddNewMR.Click += new System.EventHandler(this.button1_Click);
+            // 
             // mrGrid
             // 
             this.mrGrid.AllowUserToAddRows = false;
             this.mrGrid.AllowUserToDeleteRows = false;
             this.mrGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mrGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.mrGrid.Location = new System.Drawing.Point(12, 26);
             this.mrGrid.Name = "mrGrid";
-            this.mrGrid.ReadOnly = true;
+            this.mrGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.mrGrid.Size = new System.Drawing.Size(476, 271);
             this.mrGrid.TabIndex = 1;
-            this.mrGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mrGrid_CellContentDoubleClick);
-            this.mrGrid.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mrGrid_CellContentDoubleClick);
-            // 
-            // btnGetAll
-            // 
-            this.btnGetAll.Location = new System.Drawing.Point(16, 31);
-            this.btnGetAll.Name = "btnGetAll";
-            this.btnGetAll.Size = new System.Drawing.Size(75, 23);
-            this.btnGetAll.TabIndex = 2;
-            this.btnGetAll.Text = "Get All";
-            this.btnGetAll.UseVisualStyleBackColor = true;
-            this.btnGetAll.Click += new System.EventHandler(this.btnGetAll_Click);
+            this.mrGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.mrGrid_CellEndEdit);
+            this.mrGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mrGrid_MouseClick);
             // 
             // MR
             // 
@@ -101,6 +102,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "MR";
             this.Text = "MR";
+            this.Activated += new System.EventHandler(this.btnGetAll_Click);
             this.Load += new System.EventHandler(this.MR_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mrGrid)).EndInit();

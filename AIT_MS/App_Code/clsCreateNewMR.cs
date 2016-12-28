@@ -12,7 +12,7 @@ namespace AIT_MS.App_Code
     class clsCreateNewMR
     {
         DAL objDAL = new DAL();
-        public void createNewMRno(int mrno)
+        public void createNewMRno(string mrno)
         {
             string query = "insert into mr values('"+mrno+"')";
             objDAL.ExecuteQuery(query);

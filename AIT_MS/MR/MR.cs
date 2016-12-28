@@ -53,27 +53,90 @@ namespace AIT_MS.MR
 
         }
 
-        private void mrGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void mrGrid_CellContentDoubleClick(object sender, MouseEventArgs e)
         {
-            
-            
-         
 
         }
 
-        private void mrGrid_CellContentDoubleClick(object sender, MouseEventArgs e)
+        private void mrGrid_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenuStrip m = new ContextMenuStrip();
+               
+               
+
+                int currentMouseOverRow = mrGrid.HitTest(e.X, e.Y).RowIndex;
+
+                if (currentMouseOverRow >= 0)
+                {
+                    m.Items.Add("Add");
+                    m.Items.Add("Edit");
+                    m.Items.Add("Delete");
+                    //m.Items.Add(new MenuItem(string.Format("Do something to row {0}", currentMouseOverRow.ToString())));
+                   m.ItemClicked += new ToolStripItemClickedEventHandler( m_ItemClicked);
+                }
+
+                m.Show(mrGrid, new Point(e.X, e.Y));
+
+            }
+        }
+        private string oldMR = "0";
+        void m_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             try
             {
-                String id = mrGrid.SelectedCells[0].Value.ToString();
-             
-                AddNewMR objAddNewMR = new AddNewMR(int.Parse(id));
-                objAddNewMR.Show();
+                ToolStripItem item = e.ClickedItem;
+                if (item.Text == "Edit")
+                {
+
+                    oldMR = mrGrid.SelectedRows[0].Cells[0].Value.ToString();
+                    mrGrid.CurrentRow.Cells[1].ReadOnly = false;
+                    mrGrid.CurrentRow.Cells[0].ReadOnly = true;
+                  
+                  //mrGrid.Rows[0].Cells[0].ReadOnly = false;
+                    mrGrid.BeginEdit(true);
+
+
+
+                }
+                else if(item.Text == "Delete")
+                {
+                    DialogResult dialogResult = MessageBox.Show("Want to Delete that Row Permenanlty?", "Alert", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        if (objclsMR.deletemr(mrGrid.CurrentRow.Cells[0].Value.ToString()) == true)
+                        {
+
+                        }
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //do something else
+                    }
+
+                   
+                }
+                else if (item.Text == "Add")
+                {
+                    btnAddNewMR.PerformClick();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR:"+ex.Message);
+                MessageBox.Show("ERROR:" + ex.Message);
             }
+        }
+
+        private void mrGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            string newMR = mrGrid.CurrentRow.Cells[1].Value.ToString();
+            //after edit code here
+            if(objclsMR.updatemr(oldMR,newMR))
+            {
+              
+            }
+           
         }
     }
 }

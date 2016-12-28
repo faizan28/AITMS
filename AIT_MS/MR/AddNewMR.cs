@@ -19,8 +19,8 @@ namespace AIT_MS.MR
         {
             InitializeComponent();
         }
-        int mainid= 0;
-        public AddNewMR(int id)
+        string mainid= "0";
+        public AddNewMR(string id)
         {
             InitializeComponent();
             mainid = id;
@@ -41,7 +41,7 @@ namespace AIT_MS.MR
 
             { 
                 
-                objclsCreateNewMR.createNewMRno(int.Parse(txtMRno.Text));
+                objclsCreateNewMR.createNewMRno(txtMRno.Text);
                 this.Hide();
             }
             else { //updatefucntaion here
