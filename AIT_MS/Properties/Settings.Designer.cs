@@ -41,5 +41,13 @@ namespace AIT_MS.Properties {
                 return ((string)(this["UserID"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int Role {
+            get {
+                return ((int)(this["Role"]));
+            }
+        }
     }
 }

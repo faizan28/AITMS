@@ -43,8 +43,12 @@ namespace AIT_MS
                 {
                     // this.Close();
                     Properties.Settings.Default["UserID"] =Convert.ToString( adminId);
+                    Properties.Settings.Default["Role"] = 1;
                     Properties.Settings.Default.Save();
                     MessageBox.Show("Successfully Admin Logined");
+                    //for checking pupose
+                    ChangePwd objChangePwd = new ChangePwd();
+                    objChangePwd.Show();
                 }
                 else
                 {
@@ -63,8 +67,11 @@ namespace AIT_MS
                 {
                     // this.Close();
                     Properties.Settings.Default["UserID"] = Convert.ToString(userId);
+                    Properties.Settings.Default["Role"] = 0;
                     Properties.Settings.Default.Save();
                     MessageBox.Show("Successfully Logined");
+                    ChangePwd objChangePwd = new ChangePwd();
+                    objChangePwd.Show();
                  
                 }
                 else
@@ -78,6 +85,11 @@ namespace AIT_MS
         }
 
         private void btnRed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

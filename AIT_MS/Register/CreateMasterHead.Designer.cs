@@ -33,11 +33,13 @@
             this.createButton = new System.Windows.Forms.Button();
             this.masterHeadBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblEnterHead = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblEnterHead);
             this.groupBox1.Controls.Add(this.cancelButton);
             this.groupBox1.Controls.Add(this.createButton);
             this.groupBox1.Controls.Add(this.masterHeadBox);
@@ -48,6 +50,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enter New Master Head";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // cancelButton
             // 
@@ -75,6 +78,7 @@
             this.masterHeadBox.Name = "masterHeadBox";
             this.masterHeadBox.Size = new System.Drawing.Size(229, 20);
             this.masterHeadBox.TabIndex = 1;
+            this.masterHeadBox.TextChanged += new System.EventHandler(this.masterHeadBox_TextChanged);
             // 
             // label1
             // 
@@ -84,6 +88,16 @@
             this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Master Head Name";
+            // 
+            // lblEnterHead
+            // 
+            this.lblEnterHead.AutoSize = true;
+            this.lblEnterHead.ForeColor = System.Drawing.Color.Red;
+            this.lblEnterHead.Location = new System.Drawing.Point(259, 110);
+            this.lblEnterHead.Name = "lblEnterHead";
+            this.lblEnterHead.Size = new System.Drawing.Size(127, 13);
+            this.lblEnterHead.TabIndex = 4;
+            this.lblEnterHead.Text = "Enter Master Head Name";
             // 
             // addmasterhead
             // 
@@ -108,5 +122,6 @@
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.TextBox masterHeadBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblEnterHead;
     }
 }

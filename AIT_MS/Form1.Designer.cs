@@ -31,6 +31,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnMR = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnPurchases = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -38,7 +39,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.btnMR = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -79,6 +79,16 @@
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "MR Details";
+            // 
+            // btnMR
+            // 
+            this.btnMR.Location = new System.Drawing.Point(65, 40);
+            this.btnMR.Name = "btnMR";
+            this.btnMR.Size = new System.Drawing.Size(174, 63);
+            this.btnMR.TabIndex = 1;
+            this.btnMR.Text = "MR";
+            this.btnMR.UseVisualStyleBackColor = true;
+            this.btnMR.Click += new System.EventHandler(this.button5_Click);
             // 
             // groupBox3
             // 
@@ -148,16 +158,6 @@
             this.button4.TabIndex = 0;
             this.button4.Text = "Writeoff";
             this.button4.UseVisualStyleBackColor = true;
-            // 
-            // btnMR
-            // 
-            this.btnMR.Location = new System.Drawing.Point(65, 40);
-            this.btnMR.Name = "btnMR";
-            this.btnMR.Size = new System.Drawing.Size(174, 63);
-            this.btnMR.TabIndex = 1;
-            this.btnMR.Text = "MR";
-            this.btnMR.UseVisualStyleBackColor = true;
-            this.btnMR.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 

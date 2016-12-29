@@ -21,6 +21,7 @@ namespace AIT_MS
         clsRegister objRegister = new clsRegister();
         private void addhead_Load(object sender, EventArgs e)
         {
+            lblEnterHead.Visible = false;
             masterHeadBox.DropDownStyle = ComboBoxStyle.DropDownList;
             bindmasterheadnames();
           
@@ -39,12 +40,19 @@ namespace AIT_MS
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            if (objRegister.createHead(headBox.Text, int.Parse(masterHeadBox.SelectedValue.ToString())) == true) 
+            if (headBox.Text != "")
             {
-                MessageBox.Show("Succesfull Inserted");
-                this.Close();
-                //here last form will open
-                
+                if (objRegister.createHead(headBox.Text, int.Parse(masterHeadBox.SelectedValue.ToString())) == true)
+                {
+                   
+                    this.Close();
+                    //here last form will open
+
+                }
+            }
+            else
+            {
+                lblEnterHead.Visible = true;
             }
 
 
@@ -53,6 +61,11 @@ namespace AIT_MS
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void headBox_TextChanged(object sender, EventArgs e)
+        {
+            lblEnterHead.Visible = false;
         }
     }
 }

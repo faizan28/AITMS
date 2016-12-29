@@ -22,9 +22,9 @@ namespace AIT_MS.App_Code
             string query = "select mh_id,mh_name from master_heada";
             return objDAl.GetAll(query);
         }
-        public DataTable loadheadnames()
+        public DataTable loadheadnames(string mhId)
         {
-            string query = "select h_id,h_name from heada";
+            string query = "select h_id,h_name from heada where mh_id='"+mhId+"'";
            
             return objDAl.GetAll(query);
             

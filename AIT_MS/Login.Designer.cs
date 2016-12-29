@@ -145,6 +145,7 @@
             this.label3.Size = new System.Drawing.Size(490, 39);
             this.label3.TabIndex = 1;
             this.label3.Text = "Aligarh Institute Of Technology";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Login
             // 

@@ -20,17 +20,27 @@ namespace AIT_MS.Register
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (objRegister.Addroom(cboxDeptName.SelectedValue.ToString(), txtRoomNo.Text, txtRoomDesc.Text) == true)
+            if (txtRoomNo.Text != "")
             {
-                
-                this.Hide();
-                //reopen previous page of the  application after completion
+
+
+                if (objRegister.Addroom(cboxDeptName.SelectedValue.ToString(), txtRoomNo.Text, txtRoomDesc.Text) == true)
+                {
+
+                    this.Hide();
+                    //reopen previous page of the  application after completion
+                }
+            }
+            else 
+            {
+                lblEnterRoomNo.Visible = true;
             }
             
         }
 
         private void CreateRoom_Load(object sender, EventArgs e)
         {
+            lblEnterRoomNo.Visible = false;
             BindComboBoxDept();
         }
         public void BindComboBoxDept()
@@ -46,6 +56,11 @@ namespace AIT_MS.Register
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void txtRoomNo_TextChanged(object sender, EventArgs e)
+        {
+            lblEnterRoomNo.Visible = false;
         }
     }
 }

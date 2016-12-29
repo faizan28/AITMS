@@ -37,11 +37,13 @@
             this.txtRoomNo = new System.Windows.Forms.TextBox();
             this.btnCreateRoom = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.lblEnterRoomNo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblEnterRoomNo);
             this.groupBox1.Controls.Add(this.cboxDeptName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -100,10 +102,13 @@
             // 
             // txtRoomNo
             // 
+            this.txtRoomNo.BackColor = System.Drawing.SystemColors.Window;
+            this.txtRoomNo.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtRoomNo.Location = new System.Drawing.Point(212, 62);
             this.txtRoomNo.Name = "txtRoomNo";
             this.txtRoomNo.Size = new System.Drawing.Size(251, 20);
             this.txtRoomNo.TabIndex = 0;
+            this.txtRoomNo.TextChanged += new System.EventHandler(this.txtRoomNo_TextChanged);
             // 
             // btnCreateRoom
             // 
@@ -124,6 +129,16 @@
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // lblEnterRoomNo
+            // 
+            this.lblEnterRoomNo.AutoSize = true;
+            this.lblEnterRoomNo.ForeColor = System.Drawing.Color.Red;
+            this.lblEnterRoomNo.Location = new System.Drawing.Point(384, 85);
+            this.lblEnterRoomNo.Name = "lblEnterRoomNo";
+            this.lblEnterRoomNo.Size = new System.Drawing.Size(80, 13);
+            this.lblEnterRoomNo.TabIndex = 7;
+            this.lblEnterRoomNo.Text = "Enter Room No";
             // 
             // CreateRoom
             // 
@@ -153,5 +168,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblEnterRoomNo;
     }
 }

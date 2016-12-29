@@ -35,11 +35,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.masterHeadBox = new System.Windows.Forms.ComboBox();
             this.headBox = new System.Windows.Forms.TextBox();
+            this.lblEnterHead = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblEnterHead);
             this.groupBox1.Controls.Add(this.cancelButton);
             this.groupBox1.Controls.Add(this.createButton);
             this.groupBox1.Controls.Add(this.label2);
@@ -105,6 +107,17 @@
             this.headBox.Name = "headBox";
             this.headBox.Size = new System.Drawing.Size(231, 20);
             this.headBox.TabIndex = 0;
+            this.headBox.TextChanged += new System.EventHandler(this.headBox_TextChanged);
+            // 
+            // lblEnterHead
+            // 
+            this.lblEnterHead.AutoSize = true;
+            this.lblEnterHead.ForeColor = System.Drawing.Color.Red;
+            this.lblEnterHead.Location = new System.Drawing.Point(330, 130);
+            this.lblEnterHead.Name = "lblEnterHead";
+            this.lblEnterHead.Size = new System.Drawing.Size(92, 13);
+            this.lblEnterHead.TabIndex = 6;
+            this.lblEnterHead.Text = "Enter Head Name";
             // 
             // addhead
             // 
@@ -130,5 +143,6 @@
         private System.Windows.Forms.ComboBox masterHeadBox;
         private System.Windows.Forms.TextBox headBox;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label lblEnterHead;
     }
 }
