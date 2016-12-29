@@ -55,7 +55,8 @@ namespace AIT_MS.MR
 
         private void AddNewMR_Load(object sender, EventArgs e)
         {
-
+            txtMRno.Focus();
+            AcceptButton = btnOK;
         }
     }
 }

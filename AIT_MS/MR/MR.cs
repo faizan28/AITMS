@@ -107,7 +107,7 @@ namespace AIT_MS.MR
                     {
                         if (objclsMR.deletemr(mrGrid.CurrentRow.Cells[0].Value.ToString()) == true)
                         {
-
+                            //newcomment
                         }
                     }
                     else if (dialogResult == DialogResult.No)
