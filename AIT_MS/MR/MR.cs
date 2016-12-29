@@ -63,8 +63,8 @@ namespace AIT_MS.MR
             if (e.Button == MouseButtons.Right)
             {
                 ContextMenuStrip m = new ContextMenuStrip();
-               
-               
+
+              
 
                 int currentMouseOverRow = mrGrid.HitTest(e.X, e.Y).RowIndex;
 
@@ -86,6 +86,7 @@ namespace AIT_MS.MR
         {
             try
             {
+                
                 ToolStripItem item = e.ClickedItem;
                 if (item.Text == "Edit")
                 {
@@ -102,10 +103,11 @@ namespace AIT_MS.MR
                 }
                 else if(item.Text == "Delete")
                 {
+                    string mrid = mrGrid.SelectedRows[0].Cells[0].Value.ToString();
                     DialogResult dialogResult = MessageBox.Show("Want to Delete that Row Permenanlty?", "Alert", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        if (objclsMR.deletemr(mrGrid.CurrentRow.Cells[0].Value.ToString()) == true)
+                        if (objclsMR.deletemr(mrid) == true)
                         {
                             //newcomment
                         }
@@ -137,6 +139,14 @@ namespace AIT_MS.MR
               
             }
            
+        }
+
+        private void mrGrid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            mrGrid.CurrentCell = mrGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            // Can leave these here - doesn't hurt
+            mrGrid.Rows[e.RowIndex].Selected = true;
+            mrGrid.Focus();
         }
     }
 }

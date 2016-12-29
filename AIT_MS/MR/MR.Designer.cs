@@ -91,6 +91,7 @@
             this.mrGrid.Size = new System.Drawing.Size(476, 271);
             this.mrGrid.TabIndex = 1;
             this.mrGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.mrGrid_CellEndEdit);
+            this.mrGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.mrGrid_CellMouseClick);
             this.mrGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mrGrid_MouseClick);
             // 
             // MR
