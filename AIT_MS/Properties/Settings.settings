@@ -16,5 +16,8 @@
     <Setting Name="Role" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="UserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -61,6 +61,14 @@ namespace AIT_MS
             return id;
         }
 
+        public DataTable UserInfo(int UserId)
+        {
+            string query = "select u_name from userlogin where u_id='" + UserId + "'";
+            DAL objDAL = new DAL();
+            return objDAL.GetAll(query);
+
+        }
+
 
 
     }

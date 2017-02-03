@@ -63,9 +63,13 @@ namespace AIT_MS
             else
             {
                 int userId = objLogin.UserLogin(txtUseranme.Text, txtPassword.Text);
+                DataTable dt=new DataTable();
+                dt= objLogin.UserInfo(userId);
+                string username = dt.Rows[0]["u_name"].ToString();
                 if (userId > 0)
                 {
                     // this.Close();
+                    Properties.Settings.Default["UserName"] = Convert.ToString(username);
                     Properties.Settings.Default["UserID"] = Convert.ToString(userId);
                     Properties.Settings.Default["Role"] = 0;
                     Properties.Settings.Default.Save();

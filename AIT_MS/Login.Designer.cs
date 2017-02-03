@@ -75,7 +75,7 @@
             this.btnRed.BackColor = System.Drawing.Color.Red;
             this.btnRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRed.ForeColor = System.Drawing.Color.Red;
-            this.btnRed.Location = new System.Drawing.Point(337, 160);
+            this.btnRed.Location = new System.Drawing.Point(311, 159);
             this.btnRed.Name = "btnRed";
             this.btnRed.Size = new System.Drawing.Size(21, 12);
             this.btnRed.TabIndex = 6;
@@ -85,7 +85,7 @@
             // lblLoginFailed
             // 
             this.lblLoginFailed.AutoSize = true;
-            this.lblLoginFailed.Location = new System.Drawing.Point(364, 159);
+            this.lblLoginFailed.Location = new System.Drawing.Point(338, 158);
             this.lblLoginFailed.Name = "lblLoginFailed";
             this.lblLoginFailed.Size = new System.Drawing.Size(64, 13);
             this.lblLoginFailed.TabIndex = 5;
@@ -130,7 +130,7 @@
             // 
             this.btnLogin.Location = new System.Drawing.Point(311, 59);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(53, 69);
+            this.btnLogin.Size = new System.Drawing.Size(62, 69);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
