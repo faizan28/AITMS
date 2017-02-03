@@ -96,6 +96,26 @@ namespace AIT_MS.App_Code
             return objDAl.ExecuteQuery(query);
 
         }
+        
+        public DataTable getallitems()
+        {
+            string query = "select item_a.i_desc,item_a.i_stock,item_a.i_name,master_heada.mh_name,heada.h_name from item_a  join master_heada on item_a.i_id=master_heada.mh_id join heada on item_a.i_id=heada.h_id";
+            DataTable dt = new DataTable();
+            dt = objDAl.GetAll(query);
+            return dt;
+            
+
+        }
+
+        public DataTable getallstaff()
+        {
+            string query = "select item_a.i_desc,item_a.i_stock,item_a.i_name,master_heada.mh_name,heada.h_name from item_a  join master_heada on item_a.i_id=master_heada.mh_id join heada on item_a.i_id=heada.h_id";
+            DataTable dt = new DataTable();
+            dt = objDAl.GetAll(query);
+            return dt;
+
+
+        }
 
    }
 }

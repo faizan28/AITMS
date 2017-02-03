@@ -28,7 +28,7 @@ namespace AIT_MS
         {
             addhead objAddHead = new addhead();
             objAddHead.Show();
-      
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -66,6 +66,39 @@ namespace AIT_MS
             Form1 objForm1 = new Form1();
             objForm1.Show();
             this.Hide();
+        }
+
+        private void register_Load(object sender, EventArgs e)
+        {
+          
+                
+           
+
+
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void itemsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            loadItem();
+        }
+
+        private void loadItem()
+        {
+            clsRegister obj = new clsRegister();
+            DataTable dt = new DataTable();
+            dt = obj.getallitems();
+            itemsGridView.DataSource = dt;
         }
     }
 }
