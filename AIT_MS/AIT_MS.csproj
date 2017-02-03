@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\clsCreateNewMR.cs" />
+    <Compile Include="App_Code\clsIssue.cs" />
     <Compile Include="App_Code\clsLogin.cs" />
     <Compile Include="App_Code\clsMR.cs" />
     <Compile Include="App_Code\clsRegister.cs" />
@@ -57,6 +58,12 @@
     </Compile>
     <Compile Include="ChangePwd.designer.cs">
       <DependentUpon>ChangePwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Issue\FormIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Issue\FormIssue.Designer.cs">
+      <DependentUpon>FormIssue.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -135,6 +142,9 @@
     </Compile>
     <EmbeddedResource Include="ChangePwd.resx">
       <DependentUpon>ChangePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Issue\FormIssue.resx">
+      <DependentUpon>FormIssue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
