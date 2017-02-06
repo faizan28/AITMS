@@ -185,7 +185,7 @@
             // 
             this.dateTimePickerToday.CustomFormat = "dd/MM/yyyy";
             this.dateTimePickerToday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerToday.Location = new System.Drawing.Point(47, 15);
+            this.dateTimePickerToday.Location = new System.Drawing.Point(61, 15);
             this.dateTimePickerToday.Name = "dateTimePickerToday";
             this.dateTimePickerToday.Size = new System.Drawing.Size(92, 20);
             this.dateTimePickerToday.TabIndex = 16;

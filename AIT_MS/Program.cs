@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AIT_MS.Register;
-
+using AIT_MS.Issue;
 namespace AIT_MS
 {
     static class Program
@@ -17,7 +17,7 @@ namespace AIT_MS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddNewPurchases());
+            Application.Run(new FormIssue());
         }
     }
 }

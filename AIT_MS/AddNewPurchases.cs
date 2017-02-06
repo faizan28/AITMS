@@ -52,19 +52,7 @@ namespace AIT_MS
 
 
         }
-        private void binditemName()
-        {
-            DataTable dt = new DataTable();
-            clsRegister objRegister = new clsRegister();
-            dt = objRegister.loadheadnames(CboxH.SelectedValue.ToString());
-            CboxH.DisplayMember = "h_name";
-            CboxH.ValueMember = "h_id";
-            CboxH.DataSource = dt;
-            
-
-
-
-        }
+       
         private void bindItems()
         {
             DataTable dt = new DataTable();
