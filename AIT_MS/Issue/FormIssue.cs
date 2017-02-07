@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AIT_MS.App_Code;
+using AIT_MS.Register;
 
 
 namespace AIT_MS.Issue
@@ -23,12 +24,32 @@ namespace AIT_MS.Issue
         {
             cboxH.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxMH.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxIssueTo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxCub.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxDept.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxStaff.DropDownStyle = ComboBoxStyle.DropDownList;
+
             bindmasterheadnames();
             cboxH.Enabled = false;
             cboxItem.Enabled = false;
             lblEnterItemName.Visible = false;
             lblSelectMH.Visible = false;
+            
+            cboxIssueTo.Items.Insert(0,"Room"); 
+            cboxIssueTo.Items.Insert(1,"Staff");
 
+            BindComboBoxDept();
+            cboxRoomNo.Enabled = false;
+            cboxStaff.Hide();
+            cboxRoomNo.Hide();
+            cboxCub.Hide();
+            cboxDept.Hide();
+
+            lblCub.Hide();
+            lblDept.Hide();
+            lblRoom.Hide();
+            lblSatff.Hide();
         }
         private void bindheadnames()
         {
@@ -41,6 +62,8 @@ namespace AIT_MS.Issue
             cboxH.DisplayMember = "h_name";
             cboxH.ValueMember = "h_id";
             cboxH.DataSource = dt;
+           
+
 
 
         }
@@ -75,7 +98,7 @@ namespace AIT_MS.Issue
             if (cboxMH.SelectedIndex.ToString() == "0")
             {
                 cboxH.Enabled = false;
-
+                cboxItem.Enabled = false;
             }
             else
             {
@@ -100,6 +123,107 @@ namespace AIT_MS.Issue
                 bindItems();
 
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cboxIssueTo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboxIssueTo.SelectedIndex == 0)
+            {
+                cboxRoomNo.Show();
+                cboxDept.Show();
+                lblDept.Show();
+                lblRoom.Show();
+                cboxStaff.Hide();
+                cboxCub.Hide();
+                lblCub.Hide();
+                lblSatff.Hide();
+            }
+            else if(cboxIssueTo.SelectedIndex==1)
+            {
+                cboxStaff.Show();
+                cboxRoomNo.Show();
+                cboxCub.Show();
+                cboxDept.Show();
+                lblCub.Show();
+                lblDept.Show();
+                lblRoom.Show();
+                lblSatff.Show();
+ 
+            }
+        }
+        public void BindComboBoxDept()
+        {
+            DataTable dt = new DataTable();
+            clsRegister objRegister = new clsRegister();
+            dt = objRegister.SelecAlltDept();
+            DataRow row = dt.NewRow();
+            row["d_name"] = "Please select";
+            dt.Rows.InsertAt(row, 0);
+            cboxDept.DisplayMember = "d_name";
+            cboxDept.ValueMember = "d_id";
+            cboxDept.DataSource = dt;
+        }
+        public void BindComboBoxRoom()
+        {
+            DataTable dt = new DataTable();
+            clsRegister objRegister = new clsRegister();
+            dt = objRegister.SelectDeptRoom(cboxDept.SelectedValue.ToString());
+            cboxRoomNo.DisplayMember = "r_name";
+            cboxRoomNo.ValueMember = "r_id";
+            cboxRoomNo.DataSource = dt;
+        }
+
+        private void cboxDept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboxDept.SelectedIndex.ToString() == "0")
+            {
+                cboxRoomNo.Enabled = false;
+                cboxCub.Enabled = false;
+                cboxStaff.Enabled = false;
+            }
+            else
+            {
+               
+                cboxRoomNo.Enabled = true;
+                cboxCub.Enabled = true;
+                cboxStaff.Enabled = true;
+                BindComboBoxRoom();
+
+            }
+           
+        }
+        public void BindComboBoxCub()
+        {
+            DataTable dt2 = new DataTable();
+            clsRegister objRegister = new clsRegister();
+            dt2 = objRegister.SelectCub(cboxRoomNo.SelectedValue.ToString());
+            cboxCub.DisplayMember = "c_name";
+            cboxCub.ValueMember = "c_id";
+            cboxCub.DataSource = dt2;
+        }
+
+        private void cboxRoomNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindComboBoxCub();
+        }
+        public void BindComboBoxStaff()
+        {
+            DataTable dt2 = new DataTable();
+            clsRegister objRegister = new clsRegister();
+            dt2 = objRegister.SelectSatff(cboxCub.SelectedValue.ToString());
+            cboxStaff.DisplayMember = "s_fname";
+            cboxStaff.ValueMember = "s_id";
+            cboxStaff.DataSource = dt2;
+        }
+
+        private void cboxCub_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindComboBoxStaff();
         }
     }
 }

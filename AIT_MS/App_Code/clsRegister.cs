@@ -78,6 +78,20 @@ namespace AIT_MS.App_Code
 
 
         }
+        public DataTable SelectCub(string roomno)
+        {
+            string query = "Select * from cub where r_id='"+roomno+"'";
+            return objDAl.GetAll(query);
+
+
+        }
+        public DataTable SelectSatff(string Cubno)
+        {
+            string query = "Select * from staff where c_id='" + Cubno + "'";
+            return objDAl.GetAll(query);
+
+
+        }
         public Boolean Addroom(string deptId, string roomNo,string roomDesc)
         {
             string query = "insert into room_info (r_name,d_id,r_desc) values ('" + roomNo + "','" + deptId + "','"+roomDesc+"');";
