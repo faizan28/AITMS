@@ -46,7 +46,7 @@ namespace AIT_MS
                         Properties.Settings.Default["UserID"] = Convert.ToString(adminId);
                         Properties.Settings.Default["Role"] = 1;
                         Properties.Settings.Default.Save();
-                        MessageBox.Show("Successfully Admin Logined");
+                        //MessageBox.Show("Successfully Admin Logined");
                         //for checking pupose
                         //ChangePwd objChangePwd = new ChangePwd();
                         //objChangePwd.Show();
@@ -77,7 +77,7 @@ namespace AIT_MS
                         Properties.Settings.Default["UserID"] = Convert.ToString(userId);
                         Properties.Settings.Default["Role"] = 0;
                         Properties.Settings.Default.Save();
-                        MessageBox.Show("Successfully Login");
+                       // MessageBox.Show("Successfully Login");
                         //ChangePwd objChangePwd = new ChangePwd();
                         //objChangePwd.Show();
                         Form1 objForm1 = new Form1();
@@ -96,7 +96,8 @@ namespace AIT_MS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR:" + ex.Message);
+                lblLoginFailed.Visible = true;
+                btnRed.Visible = true;
             }
         }
 

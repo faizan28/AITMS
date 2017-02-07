@@ -37,9 +37,9 @@ namespace AIT_MS.Issue
             cboxItem.Enabled = false;
             lblEnterItemName.Visible = false;
             lblSelectMH.Visible = false;
-            
-            cboxIssueTo.Items.Insert(0,"Room"); 
-            cboxIssueTo.Items.Insert(1,"Staff");
+
+            cboxIssueTo.Items.Insert(0, "Room");
+            cboxIssueTo.Items.Insert(1, "Staff");
 
             BindComboBoxDept();
             cboxRoomNo.Enabled = false;
@@ -53,7 +53,7 @@ namespace AIT_MS.Issue
             lblRoom.Hide();
             lblSatff.Hide();
 
-            txtUseriD.Text=Properties.Settings.Default["UserID"].ToString();
+            txtUseriD.Text = Properties.Settings.Default["UserID"].ToString();
             //txtUseriD.Enabled = false;
 
         }
@@ -68,7 +68,7 @@ namespace AIT_MS.Issue
             cboxH.DisplayMember = "h_name";
             cboxH.ValueMember = "h_id";
             cboxH.DataSource = dt;
-           
+
 
 
 
@@ -133,42 +133,51 @@ namespace AIT_MS.Issue
         int serialNo = 0;
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
-            {
-                insertIteminGrid();
+            lblSelectMH.Visible = false;
+            insertIteminGrid();
+            //MessageBox.Show("ERROR:" + ex.Message);
 
-
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("ERROR:" + ex.Message);
-            }
         }
 
         private void insertIteminGrid()
         {
-            int n = gridIssueItems.Rows.Add();
-            gridIssueItems.Rows[n].Cells[0].Value = serialNo.ToString();
-            gridIssueItems.Rows[n].Cells[1].Value = cboxItem.SelectedValue.ToString();
-            gridIssueItems.Rows[n].Cells[2].Value = cboxMH.Text;
-            gridIssueItems.Rows[n].Cells[3].Value = cboxH.Text ;
-            gridIssueItems.Rows[n].Cells[4].Value = cboxItem.Text;
-            if (cboxStaff.Visible == false)
+            try
             {
-                gridIssueItems.Rows[n].Cells[5].Value = cboxRoomNo.SelectedValue.ToString();
-            }
-            else
-            {
-                gridIssueItems.Rows[n].Cells[6].Value = cboxStaff.SelectedValue.ToString();
+                if (cboxMH.Text != "Please select" && cboxH.Text != "Please select" && cboxItem.Text != "" && txtQty.Text != "" && txtUseriD.Text != "" && cmbMRno.Text != "Please select" && txtrboxRemarks.Text != "" && cboxIssueTo.Text != "Please select" && cboxRoomNo.Text != "Please select" && cboxStaff.Text != "Please select")
+                {
+                    int n = gridIssueItems.Rows.Add();
+                    gridIssueItems.Rows[n].Cells[0].Value = serialNo.ToString();
+                    gridIssueItems.Rows[n].Cells[1].Value = cboxItem.SelectedValue.ToString();
+                    gridIssueItems.Rows[n].Cells[2].Value = cboxMH.Text;
+                    gridIssueItems.Rows[n].Cells[3].Value = cboxH.Text;
+                    gridIssueItems.Rows[n].Cells[4].Value = cboxItem.Text;
+                    if (cboxStaff.Visible == false)
+                    {
+                        gridIssueItems.Rows[n].Cells[5].Value = cboxRoomNo.SelectedValue.ToString();
+                    }
+                    else
+                    {
+                        gridIssueItems.Rows[n].Cells[6].Value = cboxStaff.SelectedValue.ToString();
+                    }
+
+                    gridIssueItems.Rows[n].Cells[7].Value = txtQty.Text;
+                    gridIssueItems.Rows[n].Cells[8].Value = txtrboxRemarks.Text;
+                    serialNo++;
+                }
+
+                else
+                {
+                    lblSelectMH.Visible = true;
+                }
+
             }
 
-            gridIssueItems.Rows[n].Cells[7].Value = txtQty.Text;
-            gridIssueItems.Rows[n].Cells[8].Value = txtrboxRemarks.Text;
-            serialNo++;
-
+            catch(Exception ex)
+            {
+                lblSelectMH.Visible = true;
             
+            }
+
         }
 
         private void issueall()
@@ -180,7 +189,7 @@ namespace AIT_MS.Issue
                     for (int i = 0; i < serialNo; i++)
                     {
                         objclsIssue.issueToRoom((int.Parse(gridIssueItems.Rows[i].Cells[1].Value.ToString())), (int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString())), (int.Parse(gridIssueItems.Rows[i].Cells[5].Value.ToString())), dateTimePickerDate.Text, (Convert.ToInt32(cmbMRno.SelectedValue.ToString())/*should be change to cmbMRno.SelectedValue.ToString()*/), txtrboxRemarks.Text, (Convert.ToInt32(txtUseriD.Text)/*should be change after hide App.Config UserValue*/));
-                        objclsIssue.decreasestock((int.Parse(cboxItem.SelectedValue.ToString())),(int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString())));
+                        objclsIssue.decreasestock((int.Parse(cboxItem.SelectedValue.ToString())), (int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString())));
                     }
                 }
                 else
@@ -211,7 +220,7 @@ namespace AIT_MS.Issue
                 lblCub.Hide();
                 lblSatff.Hide();
             }
-            else if(cboxIssueTo.SelectedIndex==1)
+            else if (cboxIssueTo.SelectedIndex == 1)
             {
                 cboxStaff.Show();
                 cboxRoomNo.Show();
@@ -221,7 +230,7 @@ namespace AIT_MS.Issue
                 lblDept.Show();
                 lblRoom.Show();
                 lblSatff.Show();
- 
+
             }
         }
         public void BindComboBoxDept()
@@ -256,14 +265,14 @@ namespace AIT_MS.Issue
             }
             else
             {
-               
+
                 cboxRoomNo.Enabled = true;
                 cboxCub.Enabled = true;
                 cboxStaff.Enabled = true;
                 BindComboBoxRoom();
 
             }
-           
+
         }
         public void BindComboBoxCub()
         {
@@ -321,7 +330,7 @@ namespace AIT_MS.Issue
         public void BindComboboxMr()
         {
             DataTable dt = new DataTable();
-            dt=objclsIssue.GetAllMr();
+            dt = objclsIssue.GetAllMr();
             DataRow row = dt.NewRow();
             row["mr_no"] = "Please select";
             dt.Rows.InsertAt(row, 0);
