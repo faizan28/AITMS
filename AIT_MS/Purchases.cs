@@ -16,5 +16,14 @@ namespace AIT_MS
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddNewPurchases objAddNewPurchases = new AddNewPurchases();
+           
+            objAddNewPurchases.Show();
+            this.Hide();
+
+        }
     }
 }

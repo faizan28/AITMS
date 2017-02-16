@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.CboxItem = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dateTimePickerPurchaseDate = new System.Windows.Forms.DateTimePicker();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtTprice = new System.Windows.Forms.TextBox();
@@ -48,10 +47,24 @@
             this.CboxH = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pGridView = new System.Windows.Forms.DataGridView();
             this.lblSelectMH = new System.Windows.Forms.Label();
             this.lblEnterItemName = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.txtSupplier = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbPo_no = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // CboxItem
@@ -62,13 +75,6 @@
             this.CboxItem.Size = new System.Drawing.Size(274, 21);
             this.CboxItem.TabIndex = 0;
             this.CboxItem.SelectedIndexChanged += new System.EventHandler(this.CboxItem_SelectedIndexChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(487, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 1;
             // 
             // dateTimePickerPurchaseDate
             // 
@@ -227,13 +233,23 @@
             this.label10.Text = "Head";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // dataGridView1
+            // pGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(61, 216);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(919, 150);
-            this.dataGridView1.TabIndex = 21;
+            this.pGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9});
+            this.pGridView.Location = new System.Drawing.Point(61, 216);
+            this.pGridView.Name = "pGridView";
+            this.pGridView.Size = new System.Drawing.Size(919, 150);
+            this.pGridView.TabIndex = 21;
             // 
             // lblSelectMH
             // 
@@ -255,14 +271,111 @@
             this.lblEnterItemName.TabIndex = 23;
             this.lblEnterItemName.Text = "Select Item Name";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(887, 187);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 24;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "S_No";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "i_id";
+            this.Column2.Name = "Column2";
+            this.Column2.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "mh_name";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "h_name";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "i_name";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 200;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Purchase Order No";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Quantity";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Total Price";
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Remarks";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 200;
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(61, 187);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnInsert.TabIndex = 25;
+            this.btnInsert.Text = "INSERT";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtSupplier
+            // 
+            this.txtSupplier.Location = new System.Drawing.Point(859, 62);
+            this.txtSupplier.Name = "txtSupplier";
+            this.txtSupplier.Size = new System.Drawing.Size(121, 20);
+            this.txtSupplier.TabIndex = 26;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(799, 62);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 13);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Suppiler";
+            // 
+            // cmbPo_no
+            // 
+            this.cmbPo_no.FormattingEnabled = true;
+            this.cmbPo_no.Location = new System.Drawing.Point(487, 14);
+            this.cmbPo_no.Name = "cmbPo_no";
+            this.cmbPo_no.Size = new System.Drawing.Size(121, 21);
+            this.cmbPo_no.TabIndex = 28;
+            // 
             // AddNewPurchases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 378);
+            this.Controls.Add(this.cmbPo_no);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtSupplier);
+            this.Controls.Add(this.btnInsert);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblEnterItemName);
             this.Controls.Add(this.lblSelectMH);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.pGridView);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.CboxH);
@@ -281,12 +394,11 @@
             this.Controls.Add(this.txtTprice);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.dateTimePickerPurchaseDate);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.CboxItem);
             this.Name = "AddNewPurchases";
             this.Text = "AddNewPurchases";
             this.Load += new System.EventHandler(this.AddNewPurchases_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,7 +407,6 @@
         #endregion
 
         private System.Windows.Forms.ComboBox CboxItem;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dateTimePickerPurchaseDate;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.TextBox txtTprice;
@@ -314,8 +425,22 @@
         private System.Windows.Forms.ComboBox CboxH;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView pGridView;
         private System.Windows.Forms.Label lblSelectMH;
         private System.Windows.Forms.Label lblEnterItemName;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.TextBox txtSupplier;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbPo_no;
     }
 }

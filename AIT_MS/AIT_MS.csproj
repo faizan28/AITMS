@@ -54,7 +54,9 @@
     <Compile Include="AddNewPurchases.Designer.cs">
       <DependentUpon>AddNewPurchases.cs</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\clsAddNewPurchase.cs" />
     <Compile Include="App_Code\clsCreateNewMR.cs" />
+    <Compile Include="App_Code\clsCreateNewPo_no.cs" />
     <Compile Include="App_Code\clsIssue.cs" />
     <Compile Include="App_Code\clsLogin.cs" />
     <Compile Include="App_Code\clsMR.cs" />
@@ -95,6 +97,12 @@
     </Compile>
     <Compile Include="Purchases.Designer.cs">
       <DependentUpon>Purchases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase_Order_no\AddNewPurchaseOrderNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase_Order_no\AddNewPurchaseOrderNo.Designer.cs">
+      <DependentUpon>AddNewPurchaseOrderNo.cs</DependentUpon>
     </Compile>
     <Compile Include="Register\AddItem.cs">
       <SubType>Form</SubType>
@@ -173,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Purchases.resx">
       <DependentUpon>Purchases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchase_Order_no\AddNewPurchaseOrderNo.resx">
+      <DependentUpon>AddNewPurchaseOrderNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Register\AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
