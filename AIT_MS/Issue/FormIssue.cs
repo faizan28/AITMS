@@ -29,7 +29,7 @@ namespace AIT_MS.Issue
             cboxCub.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxDept.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxStaff.DropDownStyle = ComboBoxStyle.DropDownList;
-
+            
             bindmasterheadnames();
             cboxH.Enabled = false;
             cboxItem.Enabled = false;
@@ -124,10 +124,70 @@ namespace AIT_MS.Issue
 
             }
         }
-
+        int serialNo = 0;
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            try
+            {
+                insertIteminGrid();
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR:" + ex.Message);
+            }
+        }
+
+        private void insertIteminGrid()
+        {
+            int n = gridIssueItems.Rows.Add();
+            gridIssueItems.Rows[n].Cells[0].Value = serialNo.ToString();
+            gridIssueItems.Rows[n].Cells[1].Value = cboxItem.SelectedValue.ToString();
+            gridIssueItems.Rows[n].Cells[2].Value = cboxMH.Text;
+            gridIssueItems.Rows[n].Cells[3].Value = cboxH.Text ;
+            gridIssueItems.Rows[n].Cells[4].Value = cboxItem.Text;
+            if (cboxStaff.Visible == false)
+            {
+                gridIssueItems.Rows[n].Cells[5].Value = cboxRoomNo.SelectedValue.ToString();
+            }
+            else
+            {
+                gridIssueItems.Rows[n].Cells[6].Value = cboxStaff.SelectedValue.ToString();
+            }
+
+            gridIssueItems.Rows[n].Cells[7].Value = txtQty.Text;
+            gridIssueItems.Rows[n].Cells[8].Value = txtrboxRemarks.Text;
+            serialNo++;
+
             
+        }
+
+        private void issueall()
+        {
+            try
+            {
+                if (cboxStaff.Visible == false)
+                {
+                    for (int i = 0; i < serialNo; i++)
+                    {
+                        objclsIssue.issueToRoom((int.Parse(gridIssueItems.Rows[i].Cells[1].Value.ToString())), (int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString())), (int.Parse(gridIssueItems.Rows[i].Cells[5].Value.ToString())), dateTimePickerDate.Text, (Convert.ToInt32(cmbMRno.Text)/*should be change to cmbMRno.SelectedValue.ToString()*/), txtrboxRemarks.Text, (Convert.ToInt32(txtUseriD.Text)/*should be change after hide App.Config UserValue*/));
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < serialNo; i++)
+                    {
+                        objclsIssue.issueToStaff(int.Parse(gridIssueItems.Rows[i].Cells[1].Value.ToString()), int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString()), int.Parse(gridIssueItems.Rows[i].Cells[6].Value.ToString()), dateTimePickerDate.Text, int.Parse(cmbMRno.Text)/*should be change to cmbMRno.SelectedValue.ToString()*/, txtrboxRemarks.Text, int.Parse(txtUseriD.Text)/*should be change after hide App.Config UserValue*/);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR:" + ex.Message);
+            }
         }
 
         private void cboxIssueTo_SelectedIndexChanged(object sender, EventArgs e)
@@ -224,6 +284,31 @@ namespace AIT_MS.Issue
         private void cboxCub_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindComboBoxStaff();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            issueall();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedIndex = gridIssueItems.CurrentCell.RowIndex;
+
+                gridIssueItems.Rows.RemoveAt(selectedIndex);
+                serialNo--;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR:" + ex.Message);
+            }
+        }
+
+        private void gridIssueItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

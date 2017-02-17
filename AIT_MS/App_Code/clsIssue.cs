@@ -16,5 +16,15 @@ namespace AIT_MS.App_Code
             string query = "select i_id,i_name from item_a";
             return objDAL.GetAll(query);
         }
+        public void issueToRoom(int i_id,int qty,int rid,string isr_doi,int mr_no,string remarks,int u_id)
+        {
+            string q = "insert into issue_to_room_a values("+i_id+","+qty+","+rid+",CONVERT(datetime,'"+isr_doi+"',103),"+mr_no+",'"+remarks+"',"+u_id+")";
+            objDAL.ExecuteQuery(q);
+        }
+        public void issueToStaff(int i_id, int qty, int rid, string isr_doi, int mr_no, string remarks, int u_id)
+        {
+            string q = "insert into issue_to_staff_a values(" + i_id + "," + qty + "," + rid + ",CONVERT(datetime,'" + isr_doi + "',103)," + mr_no + ",'" + remarks + "'," + u_id + ")";
+            objDAL.ExecuteQuery(q);
+        }
     }
 }

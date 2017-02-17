@@ -48,9 +48,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pGridView = new System.Windows.Forms.DataGridView();
-            this.lblSelectMH = new System.Windows.Forms.Label();
-            this.lblEnterItemName = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,10 +57,15 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblSelectMH = new System.Windows.Forms.Label();
+            this.lblEnterItemName = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.txtSupplier = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cmbPo_no = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeleterow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,18 +114,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(183, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(114, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "User Name";
+            this.label1.Text = "User Name (Hide This)";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(406, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.Size = new System.Drawing.Size(147, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "PO Number";
+            this.label2.Text = "PO Number (MAKE IT AUTO)";
             // 
             // label3
             // 
@@ -173,7 +175,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(269, 12);
+            this.txtUsername.Location = new System.Drawing.Point(297, 14);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(62, 20);
             this.txtUsername.TabIndex = 14;
@@ -248,38 +250,9 @@
             this.Column9});
             this.pGridView.Location = new System.Drawing.Point(61, 216);
             this.pGridView.Name = "pGridView";
+            this.pGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.pGridView.Size = new System.Drawing.Size(919, 150);
             this.pGridView.TabIndex = 21;
-            // 
-            // lblSelectMH
-            // 
-            this.lblSelectMH.AutoSize = true;
-            this.lblSelectMH.ForeColor = System.Drawing.Color.Red;
-            this.lblSelectMH.Location = new System.Drawing.Point(507, 86);
-            this.lblSelectMH.Name = "lblSelectMH";
-            this.lblSelectMH.Size = new System.Drawing.Size(101, 13);
-            this.lblSelectMH.TabIndex = 22;
-            this.lblSelectMH.Text = "Select Master Head";
-            // 
-            // lblEnterItemName
-            // 
-            this.lblEnterItemName.AutoSize = true;
-            this.lblEnterItemName.ForeColor = System.Drawing.Color.Red;
-            this.lblEnterItemName.Location = new System.Drawing.Point(675, 180);
-            this.lblEnterItemName.Name = "lblEnterItemName";
-            this.lblEnterItemName.Size = new System.Drawing.Size(91, 13);
-            this.lblEnterItemName.TabIndex = 23;
-            this.lblEnterItemName.Text = "Select Item Name";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(887, 187);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 24;
-            this.btnAdd.Text = "ADD";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
             // 
             // Column1
             // 
@@ -329,6 +302,36 @@
             this.Column9.Name = "Column9";
             this.Column9.Width = 200;
             // 
+            // lblSelectMH
+            // 
+            this.lblSelectMH.AutoSize = true;
+            this.lblSelectMH.ForeColor = System.Drawing.Color.Red;
+            this.lblSelectMH.Location = new System.Drawing.Point(507, 86);
+            this.lblSelectMH.Name = "lblSelectMH";
+            this.lblSelectMH.Size = new System.Drawing.Size(101, 13);
+            this.lblSelectMH.TabIndex = 22;
+            this.lblSelectMH.Text = "Select Master Head";
+            // 
+            // lblEnterItemName
+            // 
+            this.lblEnterItemName.AutoSize = true;
+            this.lblEnterItemName.ForeColor = System.Drawing.Color.Red;
+            this.lblEnterItemName.Location = new System.Drawing.Point(675, 180);
+            this.lblEnterItemName.Name = "lblEnterItemName";
+            this.lblEnterItemName.Size = new System.Drawing.Size(91, 13);
+            this.lblEnterItemName.TabIndex = 23;
+            this.lblEnterItemName.Text = "Select Item Name";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(887, 187);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 24;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnInsert
             // 
             this.btnInsert.Location = new System.Drawing.Point(61, 187);
@@ -358,16 +361,39 @@
             // cmbPo_no
             // 
             this.cmbPo_no.FormattingEnabled = true;
-            this.cmbPo_no.Location = new System.Drawing.Point(487, 14);
+            this.cmbPo_no.Location = new System.Drawing.Point(559, 18);
             this.cmbPo_no.Name = "cmbPo_no";
             this.cmbPo_no.Size = new System.Drawing.Size(121, 21);
             this.cmbPo_no.TabIndex = 28;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(658, 57);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "addnewmr";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnDeleterow
+            // 
+            this.btnDeleterow.BackColor = System.Drawing.Color.Brown;
+            this.btnDeleterow.Location = new System.Drawing.Point(176, 187);
+            this.btnDeleterow.Name = "btnDeleterow";
+            this.btnDeleterow.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleterow.TabIndex = 30;
+            this.btnDeleterow.Text = "Delete";
+            this.btnDeleterow.UseVisualStyleBackColor = false;
+            this.btnDeleterow.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // AddNewPurchases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 378);
+            this.Controls.Add(this.btnDeleterow);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbPo_no);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtSupplier);
@@ -442,5 +468,7 @@
         private System.Windows.Forms.TextBox txtSupplier;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbPo_no;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDeleterow;
     }
 }

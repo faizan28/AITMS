@@ -126,7 +126,7 @@ namespace AIT_MS
                 pGridView.Rows[n].Cells[2].Value = cboxMh.Text;
                 pGridView.Rows[n].Cells[3].Value = CboxH.Text;
                 pGridView.Rows[n].Cells[4].Value = CboxItem.Text;
-                pGridView.Rows[n].Cells[5].Value = cmbPo_no.Text;
+                pGridView.Rows[n].Cells[5].Value = cmbPo_no.Text /*Should be Change into cmbPo_no.SelectedValue.ToString()*/;
                 pGridView.Rows[n].Cells[6].Value = txtQuantity.Text;
                 pGridView.Rows[n].Cells[7].Value = txtTprice.Text;
                 pGridView.Rows[n].Cells[8].Value = rtxtremarks.Text;
@@ -148,7 +148,7 @@ namespace AIT_MS
                 clsAddNewPurchase objclsAddNewPurchase = new clsAddNewPurchase();
                 for (int i = 0; i < serial_no; i++)
                 {
-                    objclsAddNewPurchase.addnewentry((int.Parse(pGridView.Rows[i].Cells[1].Value.ToString())), pGridView.Rows[i].Cells[4].Value.ToString(), pGridView.Rows[i].Cells[5].Value.ToString(), dateTimePickerPurchaseDate.Text.ToString(), dateTimePickerToday.Text.ToString(), txtSupplier.Text, (int.Parse(pGridView.Rows[i].Cells[6].Value.ToString())), (Convert.ToDouble(pGridView.Rows[i].Cells[7].Value.ToString())), pGridView.Rows[i].Cells[8].Value.ToString(), (int.Parse(txtUsername.Text)));
+                    objclsAddNewPurchase.addnewentry((int.Parse(pGridView.Rows[i].Cells[1].Value.ToString())), pGridView.Rows[i].Cells[4].Value.ToString(), pGridView.Rows[i].Cells[5].Value.ToString(), dateTimePickerPurchaseDate.Text.ToString(), dateTimePickerToday.Text.ToString(), txtSupplier.Text, (int.Parse(pGridView.Rows[i].Cells[6].Value.ToString())), (Convert.ToDouble(pGridView.Rows[i].Cells[7].Value.ToString())), pGridView.Rows[i].Cells[8].Value.ToString(), (int.Parse(txtUsername.Text)/*Should be Change to App.Config UserID*/));
                 }
                
             }
@@ -162,6 +162,27 @@ namespace AIT_MS
         private void cmbPo_no_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Purchase_Order_no.AddNewPurchaseOrderNo objAddNewPurchaseOrderNo = new Purchase_Order_no.AddNewPurchaseOrderNo();
+            objAddNewPurchaseOrderNo.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedIndex = pGridView.CurrentCell.RowIndex;
+                
+                pGridView.Rows.RemoveAt(selectedIndex);
+                serial_no--;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR:" + ex.Message);
+            }
         }
         
 
