@@ -92,6 +92,12 @@
     <Compile Include="MR\MR.Designer.cs">
       <DependentUpon>MR.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewWirteOff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewWirteOff.Designer.cs">
+      <DependentUpon>NewWirteOff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Purchases.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,12 @@
     <Compile Include="Register\CreateStaff.Designer.cs">
       <DependentUpon>CreateStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="writeoff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="writeoff.Designer.cs">
+      <DependentUpon>writeoff.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddNewPurchases.resx">
       <DependentUpon>AddNewPurchases.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MR\MR.resx">
       <DependentUpon>MR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewWirteOff.resx">
+      <DependentUpon>NewWirteOff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Purchases.resx">
       <DependentUpon>Purchases.cs</DependentUpon>
@@ -220,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register\CreateStaff.resx">
       <DependentUpon>CreateStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="writeoff.resx">
+      <DependentUpon>writeoff.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
