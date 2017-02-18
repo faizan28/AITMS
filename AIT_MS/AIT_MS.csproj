@@ -55,6 +55,7 @@
       <DependentUpon>AddNewPurchases.cs</DependentUpon>
     </Compile>
     <Compile Include="App_Code\clsAddNewPurchase.cs" />
+    <Compile Include="App_Code\clsNewWriteOff.cs" />
     <Compile Include="App_Code\clsCreateNewMR.cs" />
     <Compile Include="App_Code\clsCreateNewPo_no.cs" />
     <Compile Include="App_Code\clsIssue.cs" />

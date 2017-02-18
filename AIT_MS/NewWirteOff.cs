@@ -18,47 +18,33 @@ namespace AIT_MS
         {
             InitializeComponent();
         }
-        private void bindheadnames()
-        {
-            DataTable dt = new DataTable();
-            clsRegister objRegister = new clsRegister();
-            dt = objRegister.loadheadnames(cboxMH.SelectedValue.ToString());
-            DataRow row = dt.NewRow();
-            row["h_name"] = "Please select";
-            dt.Rows.InsertAt(row, 0);
-            cboxH.DisplayMember = "h_name";
-            cboxH.ValueMember = "h_id";
-            cboxH.DataSource = dt;
-
-
-
-
-        }
+       
 
         private void bindItems()
         {
+            clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
             DataTable dt = new DataTable();
-            clsPurchases objPurchases = new clsPurchases();
-            dt = objPurchases.loadItems(cboxH.SelectedValue.ToString());
-            cboxItem.DisplayMember = "i_name";
-            cboxItem.ValueMember = "i_id";
-            cboxItem.DataSource = dt;
+            if (cboxWriteoffTo.SelectedIndex.ToString() == "0")
+            {
+                
+                dt = objNewWriteOff.GetAllRoomIssues(cboxRoomNo.SelectedValue.ToString());
+                cboxItem.DisplayMember = "i_name";
+                cboxItem.ValueMember = "i_id";
+                cboxItem.DataSource = dt;
+
+            }
+           else if (cboxWriteoffTo.SelectedIndex.ToString() == "1")
+            {
+                dt = objNewWriteOff.GetAllStaffIssues(cboxStaff.SelectedValue.ToString());
+                cboxItem.DisplayMember = "i_name";
+                cboxItem.ValueMember = "i_id";
+                cboxItem.DataSource = dt;
+                
+
+            }
+            
         }
-        private void bindmasterheadnames()
-        {
-
-            DataTable dt1 = new DataTable();
-            clsRegister objRegister = new clsRegister();
-
-            dt1 = objRegister.loadmhheadnames();
-            DataRow row = dt1.NewRow();
-            row["mh_name"] = "Please select";
-            dt1.Rows.InsertAt(row, 0);
-            cboxMH.DisplayMember = "mh_name";
-            cboxMH.ValueMember = "mh_id";
-            cboxMH.DataSource = dt1;
-
-        }
+        
         public void BindComboBoxDept()
         {
             DataTable dt = new DataTable();
@@ -74,8 +60,7 @@ namespace AIT_MS
 
         private void NewWirteOff_Load(object sender, EventArgs e)
         {
-            cboxH.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboxMH.DropDownStyle = ComboBoxStyle.DropDownList;
+            
             cboxWriteoffTo.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxCub.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -83,12 +68,11 @@ namespace AIT_MS
             cboxStaff.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+
+
+            cboxItem.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxItem.DropDownStyle = ComboBoxStyle.DropDownList;
             
-            bindmasterheadnames();
-            cboxH.Enabled = false;
-            cboxItem.Enabled = false;
-            lblEnterItemName.Visible = false;
-            lblSelectMH.Visible = false;
 
             cboxWriteoffTo.Items.Insert(0, "Room");
             cboxWriteoffTo.Items.Insert(1, "Staff");
@@ -156,6 +140,11 @@ namespace AIT_MS
         }
         private void cboxRoomNo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cboxWriteoffTo.SelectedIndex.ToString() == "0")
+            {
+                bindItems();
+               
+            }
             BindComboBoxCub();
         }
         public void BindComboBoxStaff()
@@ -172,37 +161,9 @@ namespace AIT_MS
             BindComboBoxStaff();
         }
 
-        private void cboxMH_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboxMH.SelectedIndex.ToString() == "0")
-            {
-                cboxH.Enabled = false;
-                cboxItem.Enabled = false;
-            }
-            else
-            {
-                lblSelectMH.Visible = false;
-                cboxH.Enabled = true;
-                bindheadnames();
+       
 
-            }
-        }
-
-        private void cboxH_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboxH.SelectedIndex.ToString() == "0")
-            {
-                cboxItem.Enabled = false;
-
-            }
-            else
-            {
-                lblEnterItemName.Visible = false;
-                cboxItem.Enabled = true;
-                bindItems();
-
-            }
-        }
+       
 
         private void cboxWriteoffTo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -229,6 +190,11 @@ namespace AIT_MS
                 lblSatff.Show();
 
             }
+        }
+
+        private void cboxStaff_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bindItems();
         }
     }
 
