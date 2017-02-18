@@ -54,7 +54,7 @@ namespace AIT_MS.Issue
             lblSatff.Hide();
 
             txtUseriD.Text=Properties.Settings.Default["UserID"].ToString();
-            txtUseriD.Enabled = false;
+            //txtUseriD.Enabled = false;
 
         }
         private void bindheadnames()
@@ -179,14 +179,16 @@ namespace AIT_MS.Issue
                 {
                     for (int i = 0; i < serialNo; i++)
                     {
-                        objclsIssue.issueToRoom((int.Parse(gridIssueItems.Rows[i].Cells[1].Value.ToString())), (int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString())), (int.Parse(gridIssueItems.Rows[i].Cells[5].Value.ToString())), dateTimePickerDate.Text, (Convert.ToInt32(cmbMRno.Text)/*should be change to cmbMRno.SelectedValue.ToString()*/), txtrboxRemarks.Text, (Convert.ToInt32(txtUseriD.Text)/*should be change after hide App.Config UserValue*/));
+                        objclsIssue.issueToRoom((int.Parse(gridIssueItems.Rows[i].Cells[1].Value.ToString())), (int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString())), (int.Parse(gridIssueItems.Rows[i].Cells[5].Value.ToString())), dateTimePickerDate.Text, (Convert.ToInt32(cmbMRno.SelectedValue.ToString())/*should be change to cmbMRno.SelectedValue.ToString()*/), txtrboxRemarks.Text, (Convert.ToInt32(txtUseriD.Text)/*should be change after hide App.Config UserValue*/));
+                        objclsIssue.decreasestock((int.Parse(cboxItem.SelectedValue.ToString())),(int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString())));
                     }
                 }
                 else
                 {
                     for (int i = 0; i < serialNo; i++)
                     {
-                        objclsIssue.issueToStaff(int.Parse(gridIssueItems.Rows[i].Cells[1].Value.ToString()), int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString()), int.Parse(gridIssueItems.Rows[i].Cells[6].Value.ToString()), dateTimePickerDate.Text, int.Parse(cmbMRno.Text)/*should be change to cmbMRno.SelectedValue.ToString()*/, txtrboxRemarks.Text, int.Parse(txtUseriD.Text)/*should be change after hide App.Config UserValue*/);
+                        objclsIssue.issueToStaff(int.Parse(gridIssueItems.Rows[i].Cells[1].Value.ToString()), int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString()), int.Parse(gridIssueItems.Rows[i].Cells[6].Value.ToString()), dateTimePickerDate.Text, int.Parse(cmbMRno.SelectedValue.ToString())/*should be change to cmbMRno.SelectedValue.ToString()*/, txtrboxRemarks.Text, int.Parse(txtUseriD.Text)/*should be change after hide App.Config UserValue*/);
+                        objclsIssue.decreasestock((int.Parse(cboxItem.SelectedValue.ToString())), (int.Parse(gridIssueItems.Rows[i].Cells[7].Value.ToString())));
                     }
                 }
             }

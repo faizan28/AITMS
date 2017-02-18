@@ -35,7 +35,7 @@ namespace AIT_MS
             lblEnterItemName.Visible = false;
             lblSelectMH.Visible = false;
             txtUsername.Text = Properties.Settings.Default["UserName"].ToString();
-            txtUsername.Enabled = false;
+           // txtUsername.Enabled = false;
             BindComboboxPO();
             
         }
@@ -131,7 +131,7 @@ namespace AIT_MS
                 pGridView.Rows[n].Cells[2].Value = cboxMh.Text;
                 pGridView.Rows[n].Cells[3].Value = CboxH.Text;
                 pGridView.Rows[n].Cells[4].Value = CboxItem.Text;
-                pGridView.Rows[n].Cells[5].Value = cmbPo_no.Text /*Should be Change into cmbPo_no.SelectedValue.ToString()*/;
+                pGridView.Rows[n].Cells[5].Value = cmbPo_no.SelectedValue.ToString(); /*Should be Change into cmbPo_no.SelectedValue.ToString()*/;
                 pGridView.Rows[n].Cells[6].Value = txtQuantity.Text;
                 pGridView.Rows[n].Cells[7].Value = txtTprice.Text;
                 pGridView.Rows[n].Cells[8].Value = rtxtremarks.Text;
@@ -154,12 +154,15 @@ namespace AIT_MS
                 for (int i = 0; i < serial_no; i++)
                 {
                     objclsAddNewPurchase.addnewentry((int.Parse(pGridView.Rows[i].Cells[1].Value.ToString())), pGridView.Rows[i].Cells[4].Value.ToString(), pGridView.Rows[i].Cells[5].Value.ToString(), dateTimePickerPurchaseDate.Text.ToString(), dateTimePickerToday.Text.ToString(), txtSupplier.Text, (int.Parse(pGridView.Rows[i].Cells[6].Value.ToString())), (Convert.ToDouble(pGridView.Rows[i].Cells[7].Value.ToString())), pGridView.Rows[i].Cells[8].Value.ToString(), (int.Parse(txtUsername.Text)/*Should be Change to App.Config UserID*/));
+                    objclsAddNewPurchase.increasestock((int.Parse(pGridView.Rows[i].Cells[1].Value.ToString())),(int.Parse(pGridView.Rows[i].Cells[6].Value.ToString())));
                 }
+                pGridView.Refresh();
+                pGridView.Rows.Clear();
+                serial_no = 0;
                
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("ERROR:" + ex.Message);
             }
         }

@@ -22,6 +22,11 @@ namespace AIT_MS.App_Code
            string q = "insert into purchase_a values(" + i_id + ",'" + po_no + "',CONVERT(datetime,'" + dop + "',103),"+"CONVERT(datetime,'" + doe + "',103),'" + s_name + "'," + qty + "," + t_price + ",'" + remarks + "'," + u_id + ")";
             objDAL.ExecuteQuery(q);
         }
+        public void increasestock(int i_id, int qty)
+        {
+            string q = "update item_a set i_stock=i_stock+"+qty+" where i_id="+i_id;
+            objDAL.ExecuteQuery(q);
+        }
         public DataTable GetAllPO()
         {
             DAL objDAl = new DAL();

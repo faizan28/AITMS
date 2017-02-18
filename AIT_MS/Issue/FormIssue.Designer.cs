@@ -375,7 +375,7 @@
             this.txtrboxRemarks.Name = "txtrboxRemarks";
             this.txtrboxRemarks.Size = new System.Drawing.Size(186, 109);
             this.txtrboxRemarks.TabIndex = 36;
-            this.txtrboxRemarks.Text = "";
+            this.txtrboxRemarks.Text = "No Remarks";
             // 
             // lblRemarks
             // 

@@ -107,7 +107,7 @@
             this.rtxtremarks.Name = "rtxtremarks";
             this.rtxtremarks.Size = new System.Drawing.Size(270, 125);
             this.rtxtremarks.TabIndex = 6;
-            this.rtxtremarks.Text = "";
+            this.rtxtremarks.Text = "No Remarks";
             // 
             // label1
             // 
