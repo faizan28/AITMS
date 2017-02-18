@@ -27,11 +27,16 @@ namespace AIT_MS
         {
             CboxH.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxMh.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPo_no.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPo_no.DropDownStyle = ComboBoxStyle.DropDownList;
             bindmasterheadnames();
             CboxH.Enabled = false;
             CboxItem.Enabled = false;
             lblEnterItemName.Visible = false;
             lblSelectMH.Visible = false;
+            txtUsername.Text = Properties.Settings.Default["UserName"].ToString();
+            txtUsername.Enabled = false;
+            BindComboboxPO();
             
         }
 
@@ -183,6 +188,18 @@ namespace AIT_MS
             {
                 MessageBox.Show("ERROR:" + ex.Message);
             }
+        }
+        public void BindComboboxPO()
+        {
+            clsAddNewPurchase objclsAddNewPurchase = new clsAddNewPurchase();
+            DataTable dt = new DataTable();
+            dt = objclsAddNewPurchase.GetAllPO();
+            DataRow row = dt.NewRow();
+            row["po_no"] = "Please select";
+            dt.Rows.InsertAt(row, 0);
+            cmbPo_no.DisplayMember = "po_no";
+            cmbPo_no.ValueMember = "po_id";
+            cmbPo_no.DataSource = dt;
         }
         
 

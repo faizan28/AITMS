@@ -112,20 +112,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(183, 19);
+            this.label1.Location = new System.Drawing.Point(216, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "User Name (Hide This)";
+            this.label1.Text = "User Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(406, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 13);
+            this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "PO Number (MAKE IT AUTO)";
+            this.label2.Text = "PO Number";
             // 
             // label3
             // 
@@ -361,7 +361,7 @@
             // cmbPo_no
             // 
             this.cmbPo_no.FormattingEnabled = true;
-            this.cmbPo_no.Location = new System.Drawing.Point(559, 18);
+            this.cmbPo_no.Location = new System.Drawing.Point(487, 15);
             this.cmbPo_no.Name = "cmbPo_no";
             this.cmbPo_no.Size = new System.Drawing.Size(121, 21);
             this.cmbPo_no.TabIndex = 28;

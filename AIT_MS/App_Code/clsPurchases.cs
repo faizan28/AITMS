@@ -20,5 +20,6 @@ namespace AIT_MS.App_Code
             return objDAl.GetAll(query);
 
         }
+        
     }
 }

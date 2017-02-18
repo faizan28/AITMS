@@ -29,7 +29,9 @@ namespace AIT_MS.Issue
             cboxCub.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxDept.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxStaff.DropDownStyle = ComboBoxStyle.DropDownList;
-            
+            cmbMRno.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMRno.DropDownStyle = ComboBoxStyle.DropDownList;
+            BindComboboxMr();
             bindmasterheadnames();
             cboxH.Enabled = false;
             cboxItem.Enabled = false;
@@ -50,6 +52,10 @@ namespace AIT_MS.Issue
             lblDept.Hide();
             lblRoom.Hide();
             lblSatff.Hide();
+
+            txtUseriD.Text=Properties.Settings.Default["UserID"].ToString();
+            txtUseriD.Enabled = false;
+
         }
         private void bindheadnames()
         {
@@ -309,6 +315,17 @@ namespace AIT_MS.Issue
         private void gridIssueItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        public void BindComboboxMr()
+        {
+            DataTable dt = new DataTable();
+            dt=objclsIssue.GetAllMr();
+            DataRow row = dt.NewRow();
+            row["mr_no"] = "Please select";
+            dt.Rows.InsertAt(row, 0);
+            cmbMRno.DisplayMember = "mr_no";
+            cmbMRno.ValueMember = "mr_id";
+            cmbMRno.DataSource = dt;
         }
     }
 }

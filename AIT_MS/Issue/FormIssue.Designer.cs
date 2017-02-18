@@ -355,19 +355,19 @@
             // cmbMRno
             // 
             this.cmbMRno.FormattingEnabled = true;
-            this.cmbMRno.Location = new System.Drawing.Point(383, 19);
+            this.cmbMRno.Location = new System.Drawing.Point(353, 22);
             this.cmbMRno.Name = "cmbMRno";
-            this.cmbMRno.Size = new System.Drawing.Size(156, 21);
+            this.cmbMRno.Size = new System.Drawing.Size(129, 21);
             this.cmbMRno.TabIndex = 34;
             // 
             // lblMrno
             // 
             this.lblMrno.AutoSize = true;
-            this.lblMrno.Location = new System.Drawing.Point(277, 27);
+            this.lblMrno.Location = new System.Drawing.Point(286, 25);
             this.lblMrno.Name = "lblMrno";
-            this.lblMrno.Size = new System.Drawing.Size(100, 13);
+            this.lblMrno.Size = new System.Drawing.Size(44, 13);
             this.lblMrno.TabIndex = 35;
-            this.lblMrno.Text = "MR no make it auto";
+            this.lblMrno.Text = "MR No.";
             // 
             // txtrboxRemarks
             // 
@@ -390,17 +390,17 @@
             // 
             this.txtUseriD.Location = new System.Drawing.Point(128, 182);
             this.txtUseriD.Name = "txtUseriD";
-            this.txtUseriD.Size = new System.Drawing.Size(100, 20);
+            this.txtUseriD.Size = new System.Drawing.Size(121, 20);
             this.txtUseriD.TabIndex = 38;
             // 
             // userid
             // 
             this.userid.AutoSize = true;
-            this.userid.Location = new System.Drawing.Point(25, 189);
+            this.userid.Location = new System.Drawing.Point(25, 184);
             this.userid.Name = "userid";
-            this.userid.Size = new System.Drawing.Size(85, 13);
+            this.userid.Size = new System.Drawing.Size(43, 13);
             this.userid.TabIndex = 39;
-            this.userid.Text = "User ID hide this";
+            this.userid.Text = "User ID";
             // 
             // btnIssue
             // 

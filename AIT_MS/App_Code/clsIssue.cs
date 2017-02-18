@@ -26,5 +26,10 @@ namespace AIT_MS.App_Code
             string q = "insert into issue_to_staff_a values(" + i_id + "," + qty + "," + rid + ",CONVERT(datetime,'" + isr_doi + "',103)," + mr_no + ",'" + remarks + "'," + u_id + ")";
             objDAL.ExecuteQuery(q);
         }
+        public DataTable GetAllMr()
+        {
+            string query = "select * from mr";
+            return objDAL.GetAll(query);
+        }
     }
 }
