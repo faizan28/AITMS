@@ -104,6 +104,9 @@ namespace AIT_MS
             DataTable dt = new DataTable();
             clsRegister objRegister = new clsRegister();
             dt = objRegister.SelectDeptRoom(cboxDept.SelectedValue.ToString());
+            DataRow row = dt.NewRow();
+            row["r_name"] = "Please select";
+            dt.Rows.InsertAt(row, 0);
             cboxRoomNo.DisplayMember = "r_name";
             cboxRoomNo.ValueMember = "r_id";
             cboxRoomNo.DataSource = dt;
@@ -134,6 +137,9 @@ namespace AIT_MS
             DataTable dt2 = new DataTable();
             clsRegister objRegister = new clsRegister();
             dt2 = objRegister.SelectCub(cboxRoomNo.SelectedValue.ToString());
+            DataRow row = dt2.NewRow();
+            row["c_name"] = "Please select";
+            dt2.Rows.InsertAt(row, 0);
             cboxCub.DisplayMember = "c_name";
             cboxCub.ValueMember = "c_id";
             cboxCub.DataSource = dt2;
@@ -152,6 +158,9 @@ namespace AIT_MS
             DataTable dt2 = new DataTable();
             clsRegister objRegister = new clsRegister();
             dt2 = objRegister.SelectSatff(cboxCub.SelectedValue.ToString());
+            DataRow row = dt2.NewRow();
+            row["s_fname"] = "Please select";
+            dt2.Rows.InsertAt(row, 0);
             cboxStaff.DisplayMember = "s_fname";
             cboxStaff.ValueMember = "s_id";
             cboxStaff.DataSource = dt2;
@@ -194,7 +203,25 @@ namespace AIT_MS
 
         private void cboxStaff_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bindItems();
+            //bindItems();
+            bindgrid();
+        }
+        public void bindgrid()
+        {
+            if (cboxWriteoffTo.SelectedIndex == 0)
+            {
+                DataTable dt = new DataTable();
+                clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
+                dt = objNewWriteOff.GetAllStaffIssuesGrid(cboxRoomNo.SelectedValue.ToString());
+                dataGridView1.DataSource = dt;
+            }
+            else if(cboxWriteoffTo.SelectedIndex == 1)
+            {
+                DataTable dt = new DataTable();
+                clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
+                dt = objNewWriteOff.GetAllStaffIssuesGrid(cboxStaff.SelectedValue.ToString());
+                dataGridView1.DataSource = dt;
+            }
         }
     }
 
