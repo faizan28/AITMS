@@ -100,5 +100,118 @@ namespace AIT_MS
             dt = obj.getallitems();
             itemsGridView.DataSource = dt;
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            loadStaff();
+        }
+
+        private void loadStaff()
+        {
+            clsRegister obj = new clsRegister();
+            DataTable dt = new DataTable();
+            dt = obj.getallstaff();
+            StaffGridView.DataSource = dt;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            loadHeadMaster();
+        }
+        private void loadHeadMaster()
+        {
+            clsRegister obj = new clsRegister();
+            DataTable dt = new DataTable();
+
+            dt = obj.loadmhheadnames();
+            HeadGridView.DataSource = dt;
+        }
+
+       
+
+
+
+        private void btnViewDept_Click(object sender, EventArgs e)
+        {
+            lbl.Text = "All Departments";
+            GetAllDepartments();
+        }
+
+        private void GetAllDepartments()
+        {
+            clsRegister obj = new clsRegister();
+            DataTable dt = new DataTable();
+
+            dt = obj.SelecAlltDept();
+            DeptRoomGrid.DataSource = dt;
+        }
+
+        private void GetAllHead_MasrerHead()
+        {
+            clsRegister obj = new clsRegister();
+            DataTable dt = new DataTable();
+
+            dt = obj.getallHeadAndMasterHead();
+            HeadGridView.DataSource = dt;
+
+           
+        }
+
+        //private void btnViewAll_Click(object sender, EventArgs e)
+        //{
+        //    GetAllDept_room_cubical();
+        //}
+
+        //private void GetAllDept_room_cubical()
+        //{
+        //    clsRegister obj = new clsRegister();
+        //    DataTable dt = new DataTable();
+        //    dt = obj.
+        //    DeptRoomGrid.DataSource = dt;
+        //}
+
+        private void btnViewRooms_Click(object sender, EventArgs e)
+        {
+            GetAllRooms();
+        }
+
+        private void GetAllRooms()
+        {
+            clsRegister obj = new clsRegister();
+            DataTable dt = new DataTable();
+            dt = obj.getallRoom();
+            DeptRoomGrid.DataSource = dt;
+        }
+
+        private void GetAllCubical()
+        {
+            clsRegister obj = new clsRegister();
+            DataTable dt = new DataTable();
+            dt = obj.getallCubical_room();
+            DeptRoomGrid.DataSource = dt;
+        }
+
+        private void btnViewCubical_Click(object sender, EventArgs e)
+        {
+            GetAllCubical();
+        }
+
+        private void btnHead_Click(object sender, EventArgs e)
+        {
+            GetAllHead_MasrerHead();
+        }
+
+
+
+
+
+
+
+
     }
 }

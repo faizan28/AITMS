@@ -19,7 +19,7 @@ namespace AIT_MS.App_Code
         }
         public DataTable loadmhheadnames()
         {
-            string query = "select mh_id,mh_name from master_heada";
+            string query = "select mh_id as ID ,mh_name as MasterHead from master_heada";
             return objDAl.GetAll(query);
         }
         public DataTable loadheadnames(string mhId)
@@ -52,7 +52,7 @@ namespace AIT_MS.App_Code
         }
         public DataTable SelecAlltDept()
         {
-            string query = "Select * from dept";
+            string query = "select d_id as ID , d_name as Department, d_desc as Description from dept";
             return objDAl.GetAll(query);
 
  
@@ -113,7 +113,7 @@ namespace AIT_MS.App_Code
         
         public DataTable getallitems()
         {
-            string query = "select item_a.i_desc,item_a.i_stock,item_a.i_name,master_heada.mh_name,heada.h_name from item_a  join master_heada on item_a.mh_id=master_heada.mh_id join heada on item_a.h_id=heada.h_id";
+            string query = "select  item_a.i_name as Name,item_a.i_stock as Stock,item_a.i_desc as Description,master_heada.mh_name as MasterHead,heada.h_name as Head from item_a  join master_heada on item_a.mh_id=master_heada.mh_id join heada on item_a.h_id=heada.h_id";
             DataTable dt = new DataTable();
             dt = objDAl.GetAll(query);
             return dt;
@@ -123,13 +123,59 @@ namespace AIT_MS.App_Code
 
         public DataTable getallstaff()
         {
-            string query = "select item_a.i_desc,item_a.i_stock,item_a.i_name,master_heada.mh_name,heada.h_name from item_a  join master_heada on item_a.i_id=master_heada.mh_id join heada on item_a.i_id=heada.h_id";
+            string query = "select staff.s_fname + ' ' + staff.s_lname as Name,staff.s_pid,dept.d_name as Department,room_info.r_name as Room,cub.c_name as Cubical ,staff.s_remarks as Remarks from staff join dept on staff.d_id=dept.d_id join room_info on staff.r_id=room_info.r_id join cub on staff.c_id=cub.c_id";
             DataTable dt = new DataTable();
             dt = objDAl.GetAll(query);
             return dt;
 
 
         }
+
+
+        public DataTable getallRoom()
+        {
+            string query = "select room_info.r_name as Room,room_info.r_desc as RoomDescription,dept.d_name as Department,dept.d_desc as DepartmentDescriptiom  from room_info join dept on room_info.d_id=dept.d_id";
+            DataTable dt = new DataTable();
+            dt = objDAl.GetAll(query);
+            return dt;
+
+
+        }
+
+        public DataTable getallHeadAndMasterHead()
+        {
+            string query = "select heada.h_name as Head,master_heada.mh_name as MasterHead from heada full outer join master_heada on heada.mh_id=master_heada.mh_id";
+            DataTable dt = new DataTable();
+            dt = objDAl.GetAll(query);
+            return dt;
+
+
+        }
+
+
+
+        public DataTable getallDepartments()
+        {
+            string query = "select d_name as Department,d_desc as Description from dept";
+            DataTable dt = new DataTable();
+            dt = objDAl.GetAll(query);
+            return dt;
+
+
+        }
+
+
+        public DataTable getallCubical_room()
+        {
+            string query = "select cub.c_name as CubicalName , room_info.r_name as Room,room_info.r_desc as RoomDescription from cub  join room_info on cub.r_id=room_info.r_id ";
+            DataTable dt = new DataTable();
+            dt = objDAl.GetAll(query);
+            return dt;
+
+
+        }
+
+        
 
    }
 }
