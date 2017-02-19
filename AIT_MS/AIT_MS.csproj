@@ -55,6 +55,7 @@
       <DependentUpon>AddNewPurchases.cs</DependentUpon>
     </Compile>
     <Compile Include="App_Code\clsAddNewPurchase.cs" />
+    <Compile Include="App_Code\clsCreateNewUser.cs" />
     <Compile Include="App_Code\clsNewWriteOff.cs" />
     <Compile Include="App_Code\clsCreateNewMR.cs" />
     <Compile Include="App_Code\clsCreateNewPo_no.cs" />
@@ -168,6 +169,18 @@
     <Compile Include="Register\CreateStaff.Designer.cs">
       <DependentUpon>CreateStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Register\CreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register\CreateUser.Designer.cs">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\useraccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\useraccounts.Designer.cs">
+      <DependentUpon>useraccounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="writeoff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +249,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register\CreateStaff.resx">
       <DependentUpon>CreateStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Register\CreateUser.resx">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\useraccounts.resx">
+      <DependentUpon>useraccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="writeoff.resx">
       <DependentUpon>writeoff.cs</DependentUpon>

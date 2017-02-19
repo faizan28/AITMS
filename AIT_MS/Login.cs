@@ -33,58 +33,70 @@ namespace AIT_MS
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-
-            clsLogin objLogin = new clsLogin();
-            if (chckboxAdminLogin.Checked == true)
+            try
             {
-                int adminId = objLogin.AdminLogin(txtUseranme.Text, txtPassword.Text);
-                if (adminId > 0)
+
+                clsLogin objLogin = new clsLogin();
+                if (chckboxAdminLogin.Checked == true)
                 {
-                    // this.Close();
-                    Properties.Settings.Default["UserID"] =Convert.ToString( adminId);
-                    Properties.Settings.Default["Role"] = 1;
-                    Properties.Settings.Default.Save();
-                    MessageBox.Show("Successfully Admin Logined");
-                    //for checking pupose
-                    ChangePwd objChangePwd = new ChangePwd();
-                    objChangePwd.Show();
+                    int adminId = objLogin.AdminLogin(txtUseranme.Text, txtPassword.Text);
+                    if (adminId > 0)
+                    {
+                        // this.Close();
+                        Properties.Settings.Default["UserID"] = Convert.ToString(adminId);
+                        Properties.Settings.Default["Role"] = 1;
+                        Properties.Settings.Default.Save();
+                        MessageBox.Show("Successfully Admin Logined");
+                        //for checking pupose
+                        //ChangePwd objChangePwd = new ChangePwd();
+                        //objChangePwd.Show();
+                        Form1 objForm1 = new Form1();
+                        objForm1.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+
+                        btnRed.Visible = true;
+                        lblLoginFailed.Visible = true;
+                        //chckboxAdminLogin.Visible = false;
+
+                    }
+
                 }
                 else
                 {
+                    int userId = objLogin.UserLogin(txtUseranme.Text, txtPassword.Text);
+                    DataTable dt = new DataTable();
+                    dt = objLogin.UserInfo(userId);
+                    string username = dt.Rows[0]["u_name"].ToString();
+                    if (userId > 0)
+                    {
+                        // this.Close();
+                        Properties.Settings.Default["UserName"] = Convert.ToString(username);
+                        Properties.Settings.Default["UserID"] = Convert.ToString(userId);
+                        Properties.Settings.Default["Role"] = 0;
+                        Properties.Settings.Default.Save();
+                        MessageBox.Show("Successfully Login");
+                        //ChangePwd objChangePwd = new ChangePwd();
+                        //objChangePwd.Show();
+                        Form1 objForm1 = new Form1();
+                        objForm1.Show();
+                        this.Hide();
 
-                    btnRed.Visible = true;
-                    lblLoginFailed.Visible = true;
-                    //chckboxAdminLogin.Visible = false;
+                    }
+                    else
+                    {
 
+                        btnRed.Visible = true;
+                        lblLoginFailed.Visible = true;
+
+                    }
                 }
-
             }
-            else
+            catch (Exception ex)
             {
-                int userId = objLogin.UserLogin(txtUseranme.Text, txtPassword.Text);
-                DataTable dt=new DataTable();
-                dt= objLogin.UserInfo(userId);
-                string username = dt.Rows[0]["u_name"].ToString();
-                if (userId > 0)
-                {
-                    // this.Close();
-                    Properties.Settings.Default["UserName"] = Convert.ToString(username);
-                    Properties.Settings.Default["UserID"] = Convert.ToString(userId);
-                    Properties.Settings.Default["Role"] = 0;
-                    Properties.Settings.Default.Save();
-                    MessageBox.Show("Successfully Logined");
-                    ChangePwd objChangePwd = new ChangePwd();
-                    objChangePwd.Show();
-                 
-                }
-                else
-                {
-
-                    btnRed.Visible = true;
-                    lblLoginFailed.Visible = true;
-
-                }
+                MessageBox.Show("ERROR:" + ex.Message);
             }
         }
 
