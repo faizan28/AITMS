@@ -50,7 +50,7 @@
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.cboxItem = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -256,14 +256,15 @@
             this.label1.TabIndex = 45;
             this.label1.Text = "Issued Item";
             // 
-            // btnAdd
+            // btnSearch
             // 
-            this.btnAdd.Location = new System.Drawing.Point(627, 168);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 29);
-            this.btnAdd.TabIndex = 44;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnSearch.Location = new System.Drawing.Point(369, 188);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 29);
+            this.btnSearch.TabIndex = 44;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtQty
             // 
@@ -315,7 +316,7 @@
             this.Controls.Add(this.dateTimePickerDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtQty);
             this.Controls.Add(this.cboxItem);
             this.Name = "NewWirteOff";
@@ -352,7 +353,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtQty;
         private System.Windows.Forms.ComboBox cboxItem;
         private System.Windows.Forms.DataGridView dataGridView1;

@@ -146,11 +146,11 @@ namespace AIT_MS
         }
         private void cboxRoomNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboxWriteoffTo.SelectedIndex.ToString() == "0")
-            {
-                bindItems();
+            //if (cboxWriteoffTo.SelectedIndex.ToString() == "0")
+            //{
+            //    bindItems();
                
-            }
+            //}
             BindComboBoxCub();
         }
         public void BindComboBoxStaff()
@@ -204,24 +204,63 @@ namespace AIT_MS
         private void cboxStaff_SelectedIndexChanged(object sender, EventArgs e)
         {
             //bindItems();
-            bindgrid();
+            
         }
         public void bindgrid()
         {
-            if (cboxWriteoffTo.SelectedIndex == 0)
+            
+            if (cboxWriteoffTo.SelectedIndex == 0 && cboxRoomNo.SelectedIndex ==0 && cboxDept.SelectedIndex!=0)
             {
                 DataTable dt = new DataTable();
                 clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
-                dt = objNewWriteOff.GetAllStaffIssuesGrid(cboxRoomNo.SelectedValue.ToString());
+                dt = objNewWriteOff.GetAllDeptRoomIssuesGrid(cboxDept.SelectedValue.ToString());
                 dataGridView1.DataSource = dt;
             }
-            else if(cboxWriteoffTo.SelectedIndex == 1)
+            else if (cboxWriteoffTo.SelectedIndex == 0 && cboxDept.SelectedIndex != 0 && cboxRoomNo.SelectedIndex != 0)
+            {
+                DataTable dt = new DataTable();
+                clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
+                dt = objNewWriteOff.GetAllRoomIssuesGrid(cboxRoomNo.SelectedValue.ToString());
+                dataGridView1.DataSource = dt;
+ 
+            }
+            else if (cboxWriteoffTo.SelectedIndex == 1 && cboxDept.SelectedIndex != 0 && cboxRoomNo.SelectedIndex == 0 && cboxCub.SelectedIndex == 0 && cboxStaff.SelectedIndex == 0)
+            {
+                DataTable dt = new DataTable();
+                clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
+                dt = objNewWriteOff.GetAllDeptStaffIssuesGrid(cboxDept.SelectedValue.ToString());
+                dataGridView1.DataSource = dt;
+
+            }
+            else if (cboxWriteoffTo.SelectedIndex == 1 && cboxDept.SelectedIndex != 0 && cboxRoomNo.SelectedIndex != 0 && cboxCub.SelectedIndex == 0 && cboxStaff.SelectedIndex == 0)
+            {
+                DataTable dt = new DataTable();
+                clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
+                dt = objNewWriteOff.GetAllRoomStaffIssuesGrid(cboxRoomNo.SelectedValue.ToString());
+                dataGridView1.DataSource = dt;
+
+            }
+            else if (cboxWriteoffTo.SelectedIndex == 1 && cboxDept.SelectedIndex != 0 && cboxRoomNo.SelectedIndex != 0 && cboxCub.SelectedIndex != 0 && cboxStaff.SelectedIndex == 0)
+            {
+                DataTable dt = new DataTable();
+                clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
+                dt = objNewWriteOff.GetAllCubicalStaffIssuesGrid(cboxCub.SelectedValue.ToString());
+                dataGridView1.DataSource = dt;
+
+            }
+            else if (cboxWriteoffTo.SelectedIndex == 1 && cboxDept.SelectedIndex != 0 && cboxRoomNo.SelectedIndex != 0 && cboxCub.SelectedIndex != 0 && cboxStaff.SelectedIndex != 0)
             {
                 DataTable dt = new DataTable();
                 clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
                 dt = objNewWriteOff.GetAllStaffIssuesGrid(cboxStaff.SelectedValue.ToString());
                 dataGridView1.DataSource = dt;
+
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            bindgrid();
         }
     }
 
