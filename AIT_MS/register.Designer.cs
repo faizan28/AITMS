@@ -40,6 +40,8 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnViewCubical = new System.Windows.Forms.Button();
+            this.btnViewRooms = new System.Windows.Forms.Button();
             this.lbl = new System.Windows.Forms.Label();
             this.DeptRoomGrid = new System.Windows.Forms.DataGridView();
             this.btnViewDept = new System.Windows.Forms.Button();
@@ -47,15 +49,13 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnHead = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.HeadGridView = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
-            this.btnViewRooms = new System.Windows.Forms.Button();
-            this.btnViewCubical = new System.Windows.Forms.Button();
-            this.btnHead = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsGridView)).BeginInit();
@@ -117,8 +117,10 @@
             // itemsGridView
             // 
             this.itemsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.itemsGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.itemsGridView.Location = new System.Drawing.Point(17, 73);
             this.itemsGridView.Name = "itemsGridView";
+            this.itemsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.itemsGridView.Size = new System.Drawing.Size(516, 150);
             this.itemsGridView.TabIndex = 3;
             this.itemsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemsGridView_CellContentClick);
@@ -204,6 +206,26 @@
             this.tabPage3.Text = "Dept/Rooms";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnViewCubical
+            // 
+            this.btnViewCubical.Location = new System.Drawing.Point(867, 201);
+            this.btnViewCubical.Name = "btnViewCubical";
+            this.btnViewCubical.Size = new System.Drawing.Size(84, 23);
+            this.btnViewCubical.TabIndex = 11;
+            this.btnViewCubical.Text = "View Cubical";
+            this.btnViewCubical.UseVisualStyleBackColor = true;
+            this.btnViewCubical.Click += new System.EventHandler(this.btnViewCubical_Click);
+            // 
+            // btnViewRooms
+            // 
+            this.btnViewRooms.Location = new System.Drawing.Point(867, 142);
+            this.btnViewRooms.Name = "btnViewRooms";
+            this.btnViewRooms.Size = new System.Drawing.Size(84, 23);
+            this.btnViewRooms.TabIndex = 10;
+            this.btnViewRooms.Text = "View Rooms";
+            this.btnViewRooms.UseVisualStyleBackColor = true;
+            this.btnViewRooms.Click += new System.EventHandler(this.btnViewRooms_Click);
+            // 
             // lbl
             // 
             this.lbl.AutoSize = true;
@@ -276,6 +298,16 @@
             this.tabPage4.Text = "Heads";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // btnHead
+            // 
+            this.btnHead.Location = new System.Drawing.Point(814, 135);
+            this.btnHead.Name = "btnHead";
+            this.btnHead.Size = new System.Drawing.Size(108, 23);
+            this.btnHead.TabIndex = 7;
+            this.btnHead.Text = "View Head";
+            this.btnHead.UseVisualStyleBackColor = true;
+            this.btnHead.Click += new System.EventHandler(this.btnHead_Click);
+            // 
             // button10
             // 
             this.button10.Location = new System.Drawing.Point(814, 77);
@@ -333,36 +365,6 @@
             this.btnMain.Text = "Main";
             this.btnMain.UseVisualStyleBackColor = true;
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
-            // 
-            // btnViewRooms
-            // 
-            this.btnViewRooms.Location = new System.Drawing.Point(867, 142);
-            this.btnViewRooms.Name = "btnViewRooms";
-            this.btnViewRooms.Size = new System.Drawing.Size(84, 23);
-            this.btnViewRooms.TabIndex = 10;
-            this.btnViewRooms.Text = "View Rooms";
-            this.btnViewRooms.UseVisualStyleBackColor = true;
-            this.btnViewRooms.Click += new System.EventHandler(this.btnViewRooms_Click);
-            // 
-            // btnViewCubical
-            // 
-            this.btnViewCubical.Location = new System.Drawing.Point(867, 201);
-            this.btnViewCubical.Name = "btnViewCubical";
-            this.btnViewCubical.Size = new System.Drawing.Size(84, 23);
-            this.btnViewCubical.TabIndex = 11;
-            this.btnViewCubical.Text = "View Cubical";
-            this.btnViewCubical.UseVisualStyleBackColor = true;
-            this.btnViewCubical.Click += new System.EventHandler(this.btnViewCubical_Click);
-            // 
-            // btnHead
-            // 
-            this.btnHead.Location = new System.Drawing.Point(814, 135);
-            this.btnHead.Name = "btnHead";
-            this.btnHead.Size = new System.Drawing.Size(108, 23);
-            this.btnHead.TabIndex = 7;
-            this.btnHead.Text = "View Head";
-            this.btnHead.UseVisualStyleBackColor = true;
-            this.btnHead.Click += new System.EventHandler(this.btnHead_Click);
             // 
             // register
             // 

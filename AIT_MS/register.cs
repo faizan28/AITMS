@@ -208,6 +208,103 @@ namespace AIT_MS
 
 
 
+        //private void mrGrid_MouseClick(object sender, MouseEventArgs e)
+        //{
+        //    if (e.Button == MouseButtons.Right)
+        //    {
+        //        ContextMenuStrip m = new ContextMenuStrip();
+
+
+
+        //        int currentMouseOverRow = itemsGridView.HitTest(e.X, e.Y).RowIndex;
+
+        //        if (currentMouseOverRow >= 0)
+        //        {
+        //            m.Items.Add("Add");
+        //            m.Items.Add("Edit");
+        //            m.Items.Add("Delete");
+        //            //m.Items.Add(new MenuItem(string.Format("Do something to row {0}", currentMouseOverRow.ToString())));
+        //            m.ItemClicked += new ToolStripItemClickedEventHandler(m_ItemClicked);
+        //        }
+
+        //        m.Show(itemsGridView, new Point(e.X, e.Y));
+
+        //    }
+        //}
+        //private string oldMR = "0";
+        //void m_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        //{
+        //    try
+        //    {
+
+        //        ToolStripItem item = e.ClickedItem;
+        //        if (item.Text == "Edit")
+        //        {
+
+        //            oldMR = itemsGridView.SelectedRows[0].Cells[0].Value.ToString();
+        //            itemsGridView.CurrentRow.Cells[0].ReadOnly = false;
+        //            itemsGridView.CurrentRow.Cells[1].ReadOnly = false;
+        //            itemsGridView.CurrentRow.Cells[2].ReadOnly = false;
+        //            itemsGridView.CurrentRow.Cells[3].ReadOnly = true;
+        //            itemsGridView.CurrentRow.Cells[4].ReadOnly = true;
+
+        //            //itemsGridView.Rows[0].Cells[0].ReadOnly = false;
+        //            itemsGridView.BeginEdit(true);
+
+
+
+        //        }
+        //        else if (item.Text == "Delete")
+        //        {
+        //            string name = itemsGridView.SelectedRows[0].Cells[0].Value.ToString();
+                    
+        //            DialogResult dialogResult = MessageBox.Show("Want to Delete that Row Permenanlty?", "Alert", MessageBoxButtons.YesNo);
+        //            if (dialogResult == DialogResult.Yes)
+        //            {
+        //                clsRegister objregister = new clsRegister();
+        //                if (objregister.dltItem(name) == true)
+        //                {
+        //                    //newcomment
+        //                }
+        //            }
+        //            else if (dialogResult == DialogResult.No)
+        //            {
+        //                //do something else
+        //            }
+
+
+        //        }
+        //        else if (item.Text == "Add")
+        //        {
+        //            button3.PerformClick();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("ERROR:" + ex.Message);
+        //    }
+        //}
+
+        //private void mrGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    string newMR = itemsGridView.CurrentRow.Cells[1].Value.ToString();
+        //    //after edit code here
+        //    if (objclsMR.updatemr(oldMR, newMR))
+        //    {
+
+        //    }
+
+        //}
+
+        //private void mrGrid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        //{
+        //    itemsGridView.CurrentCell = itemsGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        //    // Can leave these here - doesn't hurt
+        //    itemsGridView.Rows[e.RowIndex].Selected = true;
+        //    itemsGridView.Focus();
+        //}
+
+
 
 
 

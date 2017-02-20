@@ -175,6 +175,13 @@ namespace AIT_MS.App_Code
 
         }
 
+        public bool dltItem(string name)
+        {
+            string query = "delete from item_a where i_name='" + name + "'";
+            return objDAl.ExecuteQuery(query);
+            
+
+        }
         
 
    }
