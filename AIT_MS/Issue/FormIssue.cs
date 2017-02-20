@@ -69,9 +69,6 @@ namespace AIT_MS.Issue
             cboxH.ValueMember = "h_id";
             cboxH.DataSource = dt;
 
-
-
-
         }
 
         private void bindItems()
@@ -130,12 +127,13 @@ namespace AIT_MS.Issue
 
             }
         }
+
         int serialNo = 0;
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             lblSelectMH.Visible = false;
             insertIteminGrid();
-            //MessageBox.Show("ERROR:" + ex.Message);
 
         }
 
@@ -143,7 +141,7 @@ namespace AIT_MS.Issue
         {
             try
             {
-                if (cboxMH.Text != "Please select" && cboxH.Text != "Please select" && cboxItem.Text != "" && txtQty.Text != "" && txtUseriD.Text != "" && cmbMRno.Text != "Please select" && txtrboxRemarks.Text != "" && cboxIssueTo.Text != "Please select" && cboxRoomNo.Text != "Please select" && cboxStaff.Text != "Please select")
+                if (cboxMH.Text != "Please select" && cboxH.Text != "Please select" && cboxItem.Text != "" && txtQty.Text != "" && txtUseriD.Text != "" && cmbMRno.Text != "Please select" && txtrboxRemarks.Text != "" && cboxIssueTo.Text != "Please select" && cboxRoomNo.Text != "Please select" && cboxStaff.Text != "Please select" && cboxRoomNo.Text != "" && cboxStaff.Text != "Please select")
                 {
                     int n = gridIssueItems.Rows.Add();
                     gridIssueItems.Rows[n].Cells[0].Value = serialNo.ToString();
@@ -250,6 +248,9 @@ namespace AIT_MS.Issue
             DataTable dt = new DataTable();
             clsRegister objRegister = new clsRegister();
             dt = objRegister.SelectDeptRoom(cboxDept.SelectedValue.ToString());
+            DataRow row = dt.NewRow();
+            row["r_name"] = "Please select";
+            dt.Rows.InsertAt(row, 0);
             cboxRoomNo.DisplayMember = "r_name";
             cboxRoomNo.ValueMember = "r_id";
             cboxRoomNo.DataSource = dt;
@@ -279,6 +280,9 @@ namespace AIT_MS.Issue
             DataTable dt2 = new DataTable();
             clsRegister objRegister = new clsRegister();
             dt2 = objRegister.SelectCub(cboxRoomNo.SelectedValue.ToString());
+            DataRow row = dt2.NewRow();
+            row["c_name"] = "Please select";
+            dt2.Rows.InsertAt(row, 0);
             cboxCub.DisplayMember = "c_name";
             cboxCub.ValueMember = "c_id";
             cboxCub.DataSource = dt2;
@@ -293,6 +297,9 @@ namespace AIT_MS.Issue
             DataTable dt2 = new DataTable();
             clsRegister objRegister = new clsRegister();
             dt2 = objRegister.SelectSatff(cboxCub.SelectedValue.ToString());
+            DataRow row = dt2.NewRow();
+            row["s_fname"] = "Please select";
+            dt2.Rows.InsertAt(row, 0);
             cboxStaff.DisplayMember = "s_fname";
             cboxStaff.ValueMember = "s_id";
             cboxStaff.DataSource = dt2;
