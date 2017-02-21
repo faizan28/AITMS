@@ -36,5 +36,7 @@ namespace AIT_MS.App_Code
             string query = "select * from mr";
             return objDAL.GetAll(query);
         }
+       
+
     }
 }
