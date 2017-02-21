@@ -71,6 +71,18 @@ namespace AIT_MS
             objNewWriteoff.Show();
         }
 
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            Search objSearch = new Search();
+            objSearch.Show();
+        
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
       
 
     }

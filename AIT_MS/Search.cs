@@ -21,6 +21,7 @@ namespace AIT_MS
 
         private void Search_Load(object sender, EventArgs e)
         {
+            AcceptButton = btnSearch;
             cboxSearchFor.Items.Insert(0, "Department");
             cboxSearchFor.Items.Insert(1, "Room");
             cboxSearchFor.Items.Insert(2, "Cubical");

@@ -140,6 +140,7 @@ namespace AIT_MS
         {
             lbl.Text = "All Departments";
             GetAllDepartments();
+            lblDeptRooms.Text = "All Depts";
         }
 
         private void GetAllDepartments()
@@ -178,7 +179,10 @@ namespace AIT_MS
         private void btnViewRooms_Click(object sender, EventArgs e)
         {
             GetAllRooms();
+            lblDeptRooms.Text = "All Rooms";
         }
+
+
 
         private void GetAllRooms()
         {
@@ -199,6 +203,7 @@ namespace AIT_MS
         private void btnViewCubical_Click(object sender, EventArgs e)
         {
             GetAllCubical();
+            lblDeptRooms.Text = "All Cubicles";
         }
 
         private void btnHead_Click(object sender, EventArgs e)

@@ -56,6 +56,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
+            this.lblDeptRooms = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsGridView)).BeginInit();
@@ -108,7 +109,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(198, 52);
+            this.label1.Location = new System.Drawing.Point(355, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 21);
             this.label1.TabIndex = 4;
@@ -118,7 +119,7 @@
             // 
             this.itemsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemsGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.itemsGridView.Location = new System.Drawing.Point(17, 73);
+            this.itemsGridView.Location = new System.Drawing.Point(171, 108);
             this.itemsGridView.Name = "itemsGridView";
             this.itemsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.itemsGridView.Size = new System.Drawing.Size(516, 150);
@@ -153,7 +154,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(250, 53);
+            this.label2.Location = new System.Drawing.Point(391, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 21);
             this.label2.TabIndex = 6;
@@ -163,7 +164,7 @@
             // StaffGridView
             // 
             this.StaffGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StaffGridView.Location = new System.Drawing.Point(23, 77);
+            this.StaffGridView.Location = new System.Drawing.Point(178, 107);
             this.StaffGridView.Name = "StaffGridView";
             this.StaffGridView.Size = new System.Drawing.Size(570, 150);
             this.StaffGridView.TabIndex = 5;
@@ -190,6 +191,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.lblDeptRooms);
             this.tabPage3.Controls.Add(this.btnViewCubical);
             this.tabPage3.Controls.Add(this.btnViewRooms);
             this.tabPage3.Controls.Add(this.lbl);
@@ -237,7 +239,7 @@
             // DeptRoomGrid
             // 
             this.DeptRoomGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DeptRoomGrid.Location = new System.Drawing.Point(15, 68);
+            this.DeptRoomGrid.Location = new System.Drawing.Point(185, 102);
             this.DeptRoomGrid.Name = "DeptRoomGrid";
             this.DeptRoomGrid.Size = new System.Drawing.Size(478, 150);
             this.DeptRoomGrid.TabIndex = 7;
@@ -323,14 +325,14 @@
             this.HeadGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.HeadGridView.Location = new System.Drawing.Point(95, 123);
             this.HeadGridView.Name = "HeadGridView";
-            this.HeadGridView.Size = new System.Drawing.Size(246, 140);
+            this.HeadGridView.Size = new System.Drawing.Size(568, 176);
             this.HeadGridView.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(115, 99);
+            this.label3.Location = new System.Drawing.Point(237, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(214, 21);
             this.label3.TabIndex = 4;
@@ -365,6 +367,16 @@
             this.btnMain.Text = "Main";
             this.btnMain.UseVisualStyleBackColor = true;
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
+            // 
+            // lblDeptRooms
+            // 
+            this.lblDeptRooms.AutoSize = true;
+            this.lblDeptRooms.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblDeptRooms.Location = new System.Drawing.Point(371, 59);
+            this.lblDeptRooms.Name = "lblDeptRooms";
+            this.lblDeptRooms.Size = new System.Drawing.Size(113, 21);
+            this.lblDeptRooms.TabIndex = 12;
+            this.lblDeptRooms.Text = "Dept/Rooms";
             // 
             // register
             // 
@@ -423,5 +435,6 @@
         private System.Windows.Forms.Button btnViewRooms;
         private System.Windows.Forms.Button btnViewCubical;
         private System.Windows.Forms.Button btnHead;
+        private System.Windows.Forms.Label lblDeptRooms;
     }
 }
