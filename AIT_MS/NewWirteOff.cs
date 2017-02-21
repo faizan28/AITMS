@@ -60,6 +60,7 @@ namespace AIT_MS
 
         private void NewWirteOff_Load(object sender, EventArgs e)
         {
+            dateTimePickerDate.Value = DateTime.Now;
             
             cboxWriteoffTo.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -120,7 +121,7 @@ namespace AIT_MS
                 cboxCub.Enabled = false;
                 cboxStaff.Enabled = false;
 
-                
+
             }
             else
             {
@@ -214,14 +215,14 @@ namespace AIT_MS
                 DataTable dt = new DataTable();
                 clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
                 dt = objNewWriteOff.GetAllDeptRoomIssuesGrid(cboxDept.SelectedValue.ToString());
-                dataGridView1.DataSource = dt;
+                gridWriteoff.DataSource = dt;
             }
             else if (cboxWriteoffTo.SelectedIndex == 0 && cboxDept.SelectedIndex != 0 && cboxRoomNo.SelectedIndex != 0)
             {
                 DataTable dt = new DataTable();
                 clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
                 dt = objNewWriteOff.GetAllRoomIssuesGrid(cboxRoomNo.SelectedValue.ToString());
-                dataGridView1.DataSource = dt;
+                gridWriteoff.DataSource = dt;
  
             }
             else if (cboxWriteoffTo.SelectedIndex == 1 && cboxDept.SelectedIndex != 0 && cboxRoomNo.SelectedIndex == 0 && cboxCub.SelectedIndex == 0 && cboxStaff.SelectedIndex == 0)
@@ -229,7 +230,7 @@ namespace AIT_MS
                 DataTable dt = new DataTable();
                 clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
                 dt = objNewWriteOff.GetAllDeptStaffIssuesGrid(cboxDept.SelectedValue.ToString());
-                dataGridView1.DataSource = dt;
+                gridWriteoff.DataSource = dt;
 
             }
             else if (cboxWriteoffTo.SelectedIndex == 1 && cboxDept.SelectedIndex != 0 && cboxRoomNo.SelectedIndex != 0 && cboxCub.SelectedIndex == 0 && cboxStaff.SelectedIndex == 0)
@@ -237,7 +238,7 @@ namespace AIT_MS
                 DataTable dt = new DataTable();
                 clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
                 dt = objNewWriteOff.GetAllRoomStaffIssuesGrid(cboxRoomNo.SelectedValue.ToString());
-                dataGridView1.DataSource = dt;
+                gridWriteoff.DataSource = dt;
 
             }
             else if (cboxWriteoffTo.SelectedIndex == 1 && cboxDept.SelectedIndex != 0 && cboxRoomNo.SelectedIndex != 0 && cboxCub.SelectedIndex != 0 && cboxStaff.SelectedIndex == 0)
@@ -245,7 +246,7 @@ namespace AIT_MS
                 DataTable dt = new DataTable();
                 clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
                 dt = objNewWriteOff.GetAllCubicalStaffIssuesGrid(cboxCub.SelectedValue.ToString());
-                dataGridView1.DataSource = dt;
+                gridWriteoff.DataSource = dt;
 
             }
             else if (cboxWriteoffTo.SelectedIndex == 1 && cboxDept.SelectedIndex != 0 && cboxRoomNo.SelectedIndex != 0 && cboxCub.SelectedIndex != 0 && cboxStaff.SelectedIndex != 0)
@@ -253,7 +254,7 @@ namespace AIT_MS
                 DataTable dt = new DataTable();
                 clsNewWriteOff objNewWriteOff = new clsNewWriteOff();
                 dt = objNewWriteOff.GetAllStaffIssuesGrid(cboxStaff.SelectedValue.ToString());
-                dataGridView1.DataSource = dt;
+                gridWriteoff.DataSource = dt;
 
             }
         }
@@ -261,6 +262,72 @@ namespace AIT_MS
         private void btnSearch_Click(object sender, EventArgs e)
         {
             bindgrid();
+        }
+
+        private void gridWriteoff_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                if (cboxCub.Enabled == false)
+                {
+                    string isr_doi = gridWriteoff.SelectedRows[0].Cells[0].Value.ToString();
+                    string mr_no = gridWriteoff.SelectedRows[0].Cells[1].Value.ToString();
+                    string isr_id = gridWriteoff.SelectedRows[0].Cells[2].Value.ToString();
+                    string d_name = gridWriteoff.SelectedRows[0].Cells[3].Value.ToString();
+                    string r_name = gridWriteoff.SelectedRows[0].Cells[4].Value.ToString();
+                    string mh_name = gridWriteoff.SelectedRows[0].Cells[5].Value.ToString();
+                    string h_name = gridWriteoff.SelectedRows[0].Cells[6].Value.ToString();
+                    string i_name = gridWriteoff.SelectedRows[0].Cells[7].Value.ToString();
+                    string isr_qty = gridWriteoff.SelectedRows[0].Cells[8].Value.ToString();
+                    string remarks = gridWriteoff.SelectedRows[0].Cells[9].Value.ToString();
+                    string u_name = gridWriteoff.SelectedRows[0].Cells[10].Value.ToString();
+                    writeoffall.WriteoffEntry objWriteoffEntry = new writeoffall.WriteoffEntry(isr_doi, mr_no, isr_id, d_name, r_name, mh_name, h_name, i_name, isr_qty, remarks, u_name);
+                    objWriteoffEntry.Show();
+                }
+                else
+                {
+                    string isr_doi = gridWriteoff.SelectedRows[0].Cells[0].Value.ToString();
+                    string mr_no = gridWriteoff.SelectedRows[0].Cells[1].Value.ToString();
+                    string isr_id = gridWriteoff.SelectedRows[0].Cells[2].Value.ToString();
+                    string d_name = gridWriteoff.SelectedRows[0].Cells[3].Value.ToString();
+                    string r_name = gridWriteoff.SelectedRows[0].Cells[4].Value.ToString();
+                    string c_no = gridWriteoff.SelectedRows[0].Cells[5].Value.ToString();;
+                    string f_name = gridWriteoff.SelectedRows[0].Cells[6].Value.ToString(); ;
+                    string mh_name = gridWriteoff.SelectedRows[0].Cells[7].Value.ToString();
+                    string h_name = gridWriteoff.SelectedRows[0].Cells[8].Value.ToString();
+                    string i_name = gridWriteoff.SelectedRows[0].Cells[9].Value.ToString();
+                    string isr_qty = gridWriteoff.SelectedRows[0].Cells[10].Value.ToString();
+                    string remarks = gridWriteoff.SelectedRows[0].Cells[11].Value.ToString();
+                    string u_name = gridWriteoff.SelectedRows[0].Cells[12].Value.ToString();
+                    writeoffall.WriteoffEntry objWriteoffEntry = new writeoffall.WriteoffEntry(isr_doi, mr_no, isr_id, d_name, r_name, mh_name, h_name, i_name, isr_qty, remarks, u_name,c_no,f_name);
+                    objWriteoffEntry.Show();
+                
+ 
+                }
+                //edit ed = new edit(id)
+                //ed.Show();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("ERROR:"+ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dt1;
+                dt1 = null;
+                gridWriteoff.DataSource = dt1;
+                
+        
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR:" + ex.Message);
+            }
         }
     }
 

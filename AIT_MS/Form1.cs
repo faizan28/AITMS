@@ -25,12 +25,15 @@ namespace AIT_MS
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Issue.FormIssue objFI = new Issue.FormIssue();
+            objFI.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            AddNewPurchases objAddNewPurchase = new AddNewPurchases();
+            objAddNewPurchase.Show();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,6 +63,12 @@ namespace AIT_MS
             Settings.useraccounts objUserAccounts = new Settings.useraccounts();
             objUserAccounts.Show();
             this.Hide();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            NewWirteOff objNewWriteoff = new NewWirteOff();
+            objNewWriteoff.Show();
         }
 
       
